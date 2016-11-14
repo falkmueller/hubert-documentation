@@ -1,12 +1,13 @@
-# Documentation
+# Dokumentation
 
-## What is Hubert?
+## Was ist Hubert?
 
-Hubert is a PHP mirco framework. Its load configuration and Services and manage the workflow from request to response. 
+Hubert ist ein PHP mirco framework. Es lädt die Konfiguration und steuert den Ablauf von der Server-Anfrage bis zur Antwort.
 
-## How it work?
+## Wie funktioniert das?
 
-The framework will be configurate by a array.    
-This array defines the existing services, configuration and routes.    
-By execute the "run"-command, Hubert parse the request, dispatch the matching route and send the response.    
-Thats it.
+Hubert wird mit einem Array initialisiert, der die Konfiguratin, Service-Container und Routen beinhaltet.
+Beim Aufführen von "hubert()->core()->run()" wird die zur Anfrage passende Route heraus gesucht, ausgeführt und die Antwort an den Browser gesendet.
+Das ist die Grund-Funktion von Hubert.
+Darüber hinaus kann Hubert natürlich auch ein Bootstrap-Script ausführen, MVC-Routen verarbeiten, Templates rendern, daten speichern, ... 
+Dies wird in dieser Dokumentation genauer beschrieben.

@@ -1,6 +1,6 @@
 # Installation
 
-Hubert is available via Composer:
+Hubert wird über den Composer installiert:
 
 ```json
 {

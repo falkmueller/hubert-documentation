@@ -1,13 +1,22 @@
 <?php $this->layout('layout') ?>
 
+<?php $this->start('head') ?>
+    <link rel="canonical" href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "de"]]) ?>" />
+<?php $this->stop() ?>
+
+
 <header>
 	<section>
+            
+            <div class="submenu">
+                <a href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "en"]]) ?>">Englisch</a> | <a href="https://falk-m.de/impressum/" target="_blank">Impressum</a>
+            </div>
                 
 		<h1>Das ist<br>Hubert</h1>
                 
 		<img class="hubert" src="<?php echo $this->baseUrl("/public/images/hubert.png") ?>" alt="Hubert"/>
                 
-		<h3>Fast, easy and extensible<br>PHP micro framework</h3>
+		<h3>Ein schnelles, einfaches und erweiterbares<br>PHP Microframework</h3>
                 
 		<div class="window">
 			<div class="top">
@@ -31,7 +40,7 @@
 				<div class="line">    )</div>
 				<div class="line">);</div>
 				<div class="line">hubert($config);</div>
-				<div class="line">hubert()<span class="assign">-></span>emit(hubert()<span class="assign">-></span>run());</div>
+				<div class="line">hubert()<span class="assign">-></span>core()<span class="assign">-></span>run();</div>
 			</pre>
 		</div>
 
@@ -41,47 +50,57 @@
 <main>
 	<section>
 
-		<h2>Features and Standard components</h2>
+		<h2>Standardkomponenten</h2>
 		<div class="panel">
+                    <div class="feature">
+                            <i class="fa fa-cogs"></i>
+                            <div>
+                                    <h4>Konfiguration</h4>
+                                    <p>Hubert wird komplett über einen Array konfiguriert. In diesen definiert man Einstellungen, Routen und Container-Factories.</p>
+                            </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="feature">
+                            <i class="fa fa-archive"></i>
+                            <div>
+                                    <h4>Container</h4>
+                                    <p>
+                                        Hubert stellt einen DI-Container bereit, basierend auf <a target="_blank" href="http://pimple.sensiolabs.org/">Pimple</a>.
+                                        Die in der Konfiguration definierten Container stehen global zur Verfügung und werden erst bei Ihrer erstmaligen verwendung initialisiert. (lacy-load)
+                                    </p>
+                            </div>
+                    </div>
+
+                    <hr/>
+
 
 			<div class="feature">
 				<i class="fa fa-map-signs"></i>
 				<div>
-					<h4>Routing</h4>
-					<p>provides a a fast fouter with pattern matching and reverse matching.
-						and manage the routing flow. Thats it.</p>
+					<h4>Router</h4>
+                                        <p>
+                                            Hubert verwendet den <a target="_blank" href="https://github.com/dannyvankooten/AltoRouter">AltoRouter</a>. 
+                                            Die Routen werden in der Konfiguration definiert und können Funktionen sein oder verweiße auf Funktionen.
+                                        </p>
 				</div>
 			</div>
 
 			<hr/>
 
-			<div class="feature">
-				<i class="fa fa-archive"></i>
-				<div>
-					<h4>Container dependencies</h4>
-					<p>base of the framework is a di-container. you have the complice control of the components you use. Its provide a dependency injection container, fill them with standard-components</p>
-				</div>
-			</div>
-
-			<hr/>
-
+                    
 			<div class="feature">
 				<i class="fa fa-book"></i>
 				<div>
 					<h4>PSR-7 implementation</h4>
-					<p>support the PSR-7 HTTP message implementation</p>
+                                        <p>Über die <a target="_blank" href="https://zendframework.github.io/zend-diactoros/">PSR-7</a> Implementierung steht der Request als Container bereit und Routen können mit standardisierten Response-Objekten arbeiten.</p>
 				</div>
 			</div>
 
-			<hr>
+			
 
-			<div class="feature">
-				<i class="fa fa-cogs"></i>
-				<div>
-					<h4>Configuration</h4>
-					<p>The configuration is a array, with define the containers its give. They were lacy-load by use. You can add own containers or container-factorys. your application can also expand this in his bootstrap-file.</p>
-				</div>
-			</div>
+			
 
 		</div>
 

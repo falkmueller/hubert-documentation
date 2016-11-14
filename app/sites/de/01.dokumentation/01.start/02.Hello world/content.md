@@ -5,12 +5,7 @@ at first, require the composer autoloader
 require 'vendor/autoload.php'
 ```
 
-than crate a instance of the app class
-```php
-$app = new hubert\app();
-```
-
-now define the route and what been happen
+then define the route and what been happen
 ```php
 $config = array(
     "routes" => array(
@@ -26,7 +21,7 @@ $config = array(
 
 at the end, load the configuraion in the app, execute the app by the "run"-command and emit the response
 ```php
-$app->emit($app->run());
+hubert()->core()->run();
 ```
 
 the code of the complede example
@@ -35,8 +30,6 @@ the code of the complede example
 <?php
 
 require 'vendor/autoload.php';
-
-$app = new hubert\app();
 
 $config = array(
     "routes" => array(
@@ -49,8 +42,7 @@ $config = array(
     )
 );
 
-$app->loadConfig($config);
-$app->emit($app->run());
+hubert()->core()->run();
 ```
 ### Serverconfiguration
 
