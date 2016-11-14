@@ -10,7 +10,7 @@ class bootstrap extends \hubert\generic\bootstrap{
         //set Shared Data vor all Templates
         //$this->_container["template"]->addData(array("name" => "ronny"));
         
-        $query_params = hubert()->container()->request->getQueryParams();
+        $query_params = hubert()->request->getQueryParams();
         if(isset($query_params["compile"]) ){ //&& $this->_container["request"]->getUri()->getHost() == "localhost"
             $this->compile_css();
         }

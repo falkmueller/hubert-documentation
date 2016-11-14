@@ -17,8 +17,8 @@ class preDispatcher {
         $config = hubert()->config()->locale;
         $locale_lib = new \app\lib\locale();
         //Sprache aus url ziehen und in session schreiben
-        $current_route = hubert()->container()->current_route;
-        $language = hubert()->container()->session("locale")->language;
+        $current_route = hubert()->current_route;
+        $language = hubert()->session("locale")->language;
         if (is_array($current_route) && isset($current_route["params"]["language"])){
             $language = $current_route["params"]["language"];
         }
@@ -37,11 +37,11 @@ class preDispatcher {
         }
         
         //set locale in session
-        hubert()->container()->session("locale")->language = $language;
+        hubert()->session("locale")->language = $language;
         
         //load locale for template
         $locale_lib->register($config["dir"], $language,$config["default"]);
-        hubert()->container()->template->addData(array("language" => $language));
+        hubert()->template->addData(array("language" => $language));
         
     }
     

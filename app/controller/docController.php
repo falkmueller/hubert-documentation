@@ -5,10 +5,9 @@ namespace app\controller;
 class docController extends \hubert\generic\controller {
  
     public function indexAction($params){
-        $container = hubert()->container();
         
         
-        $language = $container->session("locale")->language;
+        $language = hubert()->session("locale")->language;
         
         $url_path = "";
         if(isset($params["path"])){
@@ -20,7 +19,7 @@ class docController extends \hubert\generic\controller {
         $current_node = $root->searchChild($url_path);
         
         if(!$current_node){
-            return $container["notFoundHandler"]($this->_response);
+            return hubert()->errorHandler->handleNotFound($this->_response);
         } 
 
         $template = "doc/page";

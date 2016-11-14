@@ -11,5 +11,5 @@ hubert(__dir__.'/config/');
 //hubert(__dir__.'/config/container/', __dir__.'/data/cache/config_cache.php');
 
 //run and emit app
-hubert()->emit(hubert()->run());
+hubert()->core->run();
 
