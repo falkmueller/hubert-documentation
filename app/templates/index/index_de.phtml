@@ -1,0 +1,93 @@
+<?php $this->layout('layout') ?>
+
+<header>
+	<section>
+                
+		<h1>Das ist<br>Hubert</h1>
+                
+		<img class="hubert" src="<?php echo $this->baseUrl("/public/images/hubert.png") ?>" alt="Hubert"/>
+                
+		<h3>Fast, easy and extensible<br>PHP micro framework</h3>
+                
+		<div class="window">
+			<div class="top">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+			<pre>
+
+				<div class="line">&lt;?php</div>
+				<div class="line"><span class="assign">require</span> <span class="string">'vendor/autoload.php'</span>;</div>
+				<div class="line">$app <span class="assign">=</span> <span class="assign">new</span> <span class="method">hubert</span>\<span class="method">app</span>();</div>
+				<div class="line">$config <span class="assign">=</span> <span class="method">array</span>(</div>
+				<div class="line">    <span class="string">"routes"</span> <span class="assign">=></span> <span class="method">array</span>(</div>
+				<div class="line">        <span class="string">"home"</span> <span class="assign">=></span> <span class="method">array</span>(</div>
+				<div class="line">            <span class="string">"route"</span> <span class="assign">=></span> <span class="string">"/"</span>,</div>
+				<div class="line">            <span class="string">"target"</span> <span class="assign">=></span> <span class="assign">function</span>($request, $response, $args){</div>
+				<div class="line">                <span class="method">echo</span> <span class="string">"Hello World"</span>;</div>
+				<div class="line">            }</div>
+				<div class="line">        )</div>
+				<div class="line">    )</div>
+				<div class="line">);</div>
+				<div class="line">hubert($config);</div>
+				<div class="line">hubert()<span class="assign">-></span>emit(hubert()<span class="assign">-></span>run());</div>
+			</pre>
+		</div>
+
+	</section>
+</header>
+
+<main>
+	<section>
+
+		<h2>Features and Standard components</h2>
+		<div class="panel">
+
+			<div class="feature">
+				<i class="fa fa-map-signs"></i>
+				<div>
+					<h4>Routing</h4>
+					<p>provides a a fast fouter with pattern matching and reverse matching.
+						and manage the routing flow. Thats it.</p>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class="feature">
+				<i class="fa fa-archive"></i>
+				<div>
+					<h4>Container dependencies</h4>
+					<p>base of the framework is a di-container. you have the complice control of the components you use. Its provide a dependency injection container, fill them with standard-components</p>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class="feature">
+				<i class="fa fa-book"></i>
+				<div>
+					<h4>PSR-7 implementation</h4>
+					<p>support the PSR-7 HTTP message implementation</p>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="feature">
+				<i class="fa fa-cogs"></i>
+				<div>
+					<h4>Configuration</h4>
+					<p>The configuration is a array, with define the containers its give. They were lacy-load by use. You can add own containers or container-factorys. your application can also expand this in his bootstrap-file.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<h2><a href="https://github.com/falkmueller/hubert">Get it now on <i class="fa fa-github"></i></a></h2>
+
+	</section>
+</main>
+
+

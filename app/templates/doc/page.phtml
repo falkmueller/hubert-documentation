@@ -1,0 +1,25 @@
+<?php $this->layout('layout', ["title" => $current->getDisplayName()]) ?>
+
+<main>
+    <section>
+        <img class="hubert" src="<?php echo $this->baseUrl("/public/images/hubert.png") ?>" alt="Hubert"/>
+        <ul id="menu" class="m">
+                <?php foreach ($root->getChildren()[0]->getChildren() as $node){?>
+                    <li class="m-header">
+                        <?= $node->getDisplayName() ?>
+                    </li>
+                    <?php foreach ($node->getChildren() as $c_node){ ?>
+                        <li class="m-item <?= ($c_node->isActive($current) ? "active" :"") ?>">
+                            <a href="<?= $this->url(["name" => "doc", "params" => ["language" => $language, "path" => $c_node->getUrlPath()]]) ?>">
+                                <?= $c_node->getDisplayName() ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
+            </ul>
+    </section>
+
+    <section>
+         <?= $current->getContent() ?>
+    </section>
+</main>

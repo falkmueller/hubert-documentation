@@ -1,6 +1,6 @@
 <?php
 
-namespace app\container\md;
+namespace app\lib\md;
 
 class mdParser extends \Parsedown
 {

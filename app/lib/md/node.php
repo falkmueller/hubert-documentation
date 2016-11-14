@@ -1,6 +1,6 @@
 <?php
 
-namespace app\container\md;
+namespace app\lib\md;
 
 class node {
     
@@ -50,23 +50,33 @@ class node {
         return $this->_name;
     }
     
-    public function getUrl(){
+    public function getDisplayName(){
+         $config = $this->getConfig();
+        if(isset($config["name"])){
+            return $config["name"];
+        }
+        
+        return $this->getName();
+    }
+
+
+    public function getUrlPath(){
         if(isset($this->_url)){
             return $this->_url;
         }
         
         if($this->_parent){
-            $this->_url = $this->_parent->getUrl().'/'.$this->getName();
+            $this->_url = $this->_parent->getUrlPath().'/'.$this->getName();
         } else {
             $this->_url = "";
         }
         
-        return $this->_url;
+        return trim($this->_url, '/');
     }
 
     public function isActive($activeNode){
         
-        if(preg_match('/^' . preg_quote($this->getUrl(), '/') . '/', $activeNode->getUrl())){
+        if(preg_match('/^' . preg_quote($this->getUrlPath(), '/') . '/', $activeNode->getUrlPath())){
             return true;
         }
         
@@ -83,7 +93,8 @@ class node {
             return "NOT FOUND";
         }
         
-        return file_get_contents($this->_path.'content.md');
+        $Parsedown = new mdParser();
+        return $Parsedown->text(file_get_contents($this->_path.'content.md'));
     }
     
     public function getConfig(){

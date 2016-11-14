@@ -6,8 +6,10 @@
         "falkm/hubert": "1.*",
         "falkm/hubert-template": "1.*",
         "falkm/hubert-logger": "1.*",
+        "falkm/hubert-session": "1.*",
         "leafo/scssphp": "0.6.6",
         "tedivm/jshrink": "~1",
-        "erusev/parsedown" : "1.*"
+        "erusev/parsedown" : "1.*",
+        "gettext/gettext": "~4.1"
     }
 }
