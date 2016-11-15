@@ -1,6 +1,6 @@
 # Hubert Documentation
 
-Ducumentation for the [hubtert-framework](https://github.com/falkmueller/hubert)
+Ducumentation for the [hubert-framework](https://github.com/falkmueller/hubert)
 
 ## Installation
 
