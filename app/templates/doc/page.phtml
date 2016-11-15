@@ -1,8 +1,8 @@
 <?php $this->layout('layout', ["title" => $current->getDisplayName()]) ?>
 
-<main>
-    <section>
-        <img class="hubert" src="<?php echo $this->baseUrl("/public/images/hubert.png") ?>" alt="Hubert"/>
+<main class="doc">
+    <section class="menu">
+        <a href="<?php echo $this->url("home") ?>"><img class="hubert" src="<?php echo $this->baseUrl("/public/images/hubert.png") ?>" alt="Hubert"/></a>
         <ul id="menu" class="m">
                 <?php foreach ($root->getChildren()[0]->getChildren() as $node){?>
                     <li class="m-header">
@@ -19,7 +19,7 @@
             </ul>
     </section>
 
-    <section>
+    <section class="content">
          <?= $current->getContent() ?>
     </section>
 </main>
