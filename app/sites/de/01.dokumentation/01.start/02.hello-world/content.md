@@ -1,11 +1,15 @@
-# Simple example
+# Einfaches Beispiel
 
-at first, require the composer autoloader
+Hier ein einfaches Beispiel in einer php-Datei.
+
+
+Zuerst muss der autoloader des Composers eingefügt werden:
 ```php
 require 'vendor/autoload.php'
 ```
 
-then define the route and what been happen
+Nun definiert man die Konfiguration.
+Im einfachen Beispiel beinhaltet diese nur eine Route für die Startseite, welche "Hello World" ausgibt:
 ```php
 $config = array(
     "routes" => array(
@@ -19,13 +23,18 @@ $config = array(
 );
 ```
 
-at the end, load the configuraion in the app, execute the app by the "run"-command and emit the response
+Nun initialisert man Hubert mit dieser Konfiguration:
+```php
+hubert($config);
+```
+
+Zum Schluss füht man den "run"-Befehlr der Core-Komponente aus:
 ```php
 hubert()->core()->run();
 ```
 
-the code of the complede example
 
+Hier die komplette "index.php"-Datei:
 ```php
 <?php
 
@@ -42,12 +51,14 @@ $config = array(
     )
 );
 
+hubert($config);
 hubert()->core()->run();
 ```
-### Serverconfiguration
 
-your server must be configurate to route all requests to this index.php file.
-For Apache, you create a .htaccess
+### Serverkonfiguration
+
+Der Server muss so konfiguriert werden dass es alle Anfragen auf unsere index.php leitet.
+Für Apache-Server definiert man eine .htaccess-Datei mit folgenden Inhalt:
 ```rouge
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
