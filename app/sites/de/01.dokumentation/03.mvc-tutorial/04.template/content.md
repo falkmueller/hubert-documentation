@@ -50,7 +50,7 @@ Dies liegt ebenfalls im Template-Pfad unter "src/temnplates/layout.phtml":
     <body>
         <ul>
             <li><a href="<?= $this->url('home') ?>">Home</a></li>
-            <li><a href="<?= $this->url(['name' => 'mvc',['controller' => 'index', 'action' => 'redirect']]) ?>">Redirect Home</a></li>
+            <li><a href="<?= $this->url('mvc',['controller' => 'index', 'action' => 'redirect']) ?>">Redirect Home</a></li>
         </ul>
 
         <?=$this->section('content')?>
@@ -60,3 +60,10 @@ Dies liegt ebenfalls im Template-Pfad unter "src/temnplates/layout.phtml":
 
 Im Layout wird der Inhalt des index-Templates als Section ausgegeben.
 Weitere Infos zum Umgang mit Plates-Templates findes du unter [platesphp.com](http://platesphp.com).
+
+# Template Erweiterungen
+
+In der Konfigutation wird eine ulrExtension geladen. Diese stellt innerhalt der Templates drei Funtionen zur verfügung:
+- $this->url($name, $params = array(), $query = array()): Diese funktion kann zum bilden von Urls verwendet werden, equivalent zu hubert()->router->url($name, $params = array(), $query = array())
+- $this->baseUrl($relPath): bildet eine Url. kann verwendet werden für Styles zum Beispiel: $this->baseUrl("/public/styles.css")
+- $this->current_route(): gibt die aktuelle Router mit Namen und Parametern zurück. Dies kann Nutzlich sein, wenn man zum Beispiel links im Template als "active" markieren möchte.

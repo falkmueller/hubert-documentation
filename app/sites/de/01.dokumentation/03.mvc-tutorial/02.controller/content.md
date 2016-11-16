@@ -27,7 +27,8 @@ class indexController extends \hubert\generic\controller {
 }
 ```
 
-Controller erben eigenschaften von "\hubert\generic\controller".    
+Controller erben Eigenschaften von "\hubert\generic\controller".    
+(oder Sie implementieren selbstständig das Interface "hubert\interfaces\controller")
 Über $this->getResonse() steht as Response-Objekt und über $this->getRequest steht das Request-Objekt zur verfügung.    
 
 Controller müssen ein das Respone Objekt zurückgeben.

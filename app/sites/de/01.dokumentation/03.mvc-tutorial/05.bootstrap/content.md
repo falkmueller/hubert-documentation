@@ -1,29 +1,21 @@
 # Bootstrap
 
-Bootstrap classes containes function, wich been called befor and after routing.
-it is helpful, for example, if you would set varibales from session in template-variable-Scope ( language, username, ...).
+Bootstrap-Klassen können genutz werden um Code nach oder vor Ausführung der Anwengung auszuführen. 
+Dies ist nützlich, wenn man zum Beispiel den Usernamen aus der Session global als Variable indie Templates geben möchte.
 
-Add the following line to your configuration:
-```php
-"display_errors" => true
-```
-
-In the basic examle, the file config/general.global.php
+Um eine bootstrap-Plassu zu nutzen muss dise in der Konfiguration angegeben werden.
+Im Beispiel fügen wir dies in die Datei config/general.global.php ein:
 ```php
 <?php
 return array( 
    "config" => array(
        "bootstrap" => src\bootstrap::class,
-       "display_errors" => true, 
     ),
 );
 ```
+Bei mehreren Bootstrap-Klassen können diese auch als Array angegeben werden.
 
-The bootstrap-configuration can afso bea array with multible classes. (is usefull vor extensions, that not implement a container)
-The bootstrap class must be implements the interface "\hubert\interfaces\bootstrap".    
-Use kann use the abstract "\hubert\generic\bootstrap", witch containes the implementation.
-
-Example for "src\bootstrap.php":
+Die eigendliche Bootstrap Klasse wäre in dem Falle in der Datei "src\bootstrap.php":
 ```php
 <?php
 
@@ -33,7 +25,7 @@ class bootstrap extends \hubert\generic\bootstrap {
     
     public function init(){
         //For example, if you use the template engine, you can here set shared data vor all Templates
-        //$this->_container["template"]->addData(array("name" => "ronny"));
+        //hubert()->template->addData(array("name" => "ronny"));
     }
 
     public function postDispatch($response){
@@ -41,4 +33,7 @@ class bootstrap extends \hubert\generic\bootstrap {
     }
 ```
 
+Bootstrap-Klassen erben Eigenschaften von "\hubert\generic\bootstrap".
+(oder Sie müssen selbstständig das inerface "hubert\interfaces\bootstrap" implementieren)
 
+Die init-Funktion einer Bootstrap wird vor dem Routing ausgeführt und die postDispatch-Funktion nach dem Ausführen der Route.
