@@ -1,4 +1,14 @@
-<?php $this->layout('layout') ?>
+
+<?php
+$translate = array(
+	"doc" => "Documentation",
+	"slug" => "de",
+	"wording" => "Deutsch",
+	"imp" => "Imprint"
+);
+?>
+
+<?php $this->layout('layout',['translate' => $translate]) ?>
 
 <?php $this->start('head') ?>
     <link rel="canonical" href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "de"]]) ?>" />
@@ -6,10 +16,6 @@
 
 <header>
 	<section>
-            
-            <div class="submenu">
-                <a href="<?php echo $this->url(["name" => "doc", "params" => ["language" => "en", "path" => "documentation"]]) ?>">documentation</a> | <a href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "de"]]) ?>">german</a> | <a href="https://falk-m.de/impressum/" target="_blank">impressum</a>
-            </div>
                 
 		<h1>This is<br>Hubert</h1>
                 
@@ -53,11 +59,10 @@
 		<div class="panel">
 
 			<div class="feature">
-				<i class="fa fa-map-signs"></i>
+				<i class="fa fa-cogs"></i>
 				<div>
-					<h4>Routing</h4>
-					<p>provides a a fast fouter with pattern matching and reverse matching.
-						and manage the routing flow. Thats it.</p>
+					<h4>Configuration</h4>
+					<p>Hubert is configured by a single array. Within this array you can configure system settings, routes and container factories.</p>
 				</div>
 			</div>
 
@@ -66,28 +71,28 @@
 			<div class="feature">
 				<i class="fa fa-archive"></i>
 				<div>
-					<h4>Container dependencies</h4>
-					<p>base of the framework is a di-container. you have the complice control of the components you use. Its provide a dependency injection container, fill them with standard-components</p>
+					<h4>Container</h4>
+					<p>Hubert provides a DI container based on pimple. The containers configured in the settings are globally accessible and only initialised on their first use.</p>
 				</div>
 			</div>
 
 			<hr/>
 
 			<div class="feature">
-				<i class="fa fa-book"></i>
+				<i class="fa fa-map-signs"></i>
 				<div>
-					<h4>PSR-7 implementation</h4>
-					<p>support the PSR-7 HTTP message implementation</p>
+					<h4>Router</h4>
+					<p>Hubert uses Alto Router. The routes are defined in the configuration and can be functions or function references.</p>
 				</div>
 			</div>
 
 			<hr>
 
 			<div class="feature">
-				<i class="fa fa-cogs"></i>
+				<i class="fa fa-book"></i>
 				<div>
-					<h4>Configuration</h4>
-					<p>The configuration is a array, with define the containers its give. They were lacy-load by use. You can add own containers or container-factorys. your application can also expand this in his bootstrap-file.</p>
+					<h4>PSR-7 implementation</h4>
+					<p>By the use of PSR-7 implementation the request is ready as a container and routes can make use of standard response objects.</p>
 				</div>
 			</div>
 
@@ -97,5 +102,3 @@
 
 	</section>
 </main>
-
-

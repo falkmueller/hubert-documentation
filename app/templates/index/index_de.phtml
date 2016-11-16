@@ -1,4 +1,14 @@
-<?php $this->layout('layout') ?>
+
+<?php
+$translate = array(
+	"doc" => "Dokumentation",
+	"slug" => "en",
+	"wording" => "English",
+	"imp" => "Impressum"
+);
+?>
+
+<?php $this->layout('layout',['translate' => $translate]) ?>
 
 <?php $this->start('head') ?>
     <link rel="canonical" href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "de"]]) ?>" />
@@ -7,10 +17,6 @@
 
 <header>
 	<section>
-            
-            <div class="submenu">
-                <a href="<?php echo $this->url(["name" => "doc", "params" => ["language" => "de", "path" => "dokumentation"]]) ?>">Dokumentation</a> | <a href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "en"]]) ?>">Englisch</a> | <a href="https://falk-m.de/impressum/" target="_blank">Impressum</a>
-            </div>
                 
 		<h1>Das ist<br>Hubert</h1>
                 
@@ -51,39 +57,39 @@
 	<section>
 
 		<h2>Standardkomponenten</h2>
+
 		<div class="panel">
-                    <div class="feature">
-                            <i class="fa fa-cogs"></i>
-                            <div>
-                                    <h4>Konfiguration</h4>
-                                    <p>Hubert wird komplett über einen Array konfiguriert. In diesen definiert man Einstellungen, Routen und Container-Factories.</p>
-                            </div>
+            <div class="feature">
+                    <i class="fa fa-cogs"></i>
+                    <div>
+                            <h4>Konfiguration</h4>
+                            <p>Hubert wird komplett über einen Array konfiguriert. In diesem definiert man Einstellungen, Routen und Container-Factories.</p>
                     </div>
-                    
-                    <hr>
-                    
-                    <div class="feature">
-                            <i class="fa fa-archive"></i>
-                            <div>
-                                    <h4>Container</h4>
-                                    <p>
-                                        Hubert stellt einen DI-Container bereit, basierend auf <a target="_blank" href="http://pimple.sensiolabs.org/">Pimple</a>.
-                                        Die in der Konfiguration definierten Container stehen global zur Verfügung und werden erst bei Ihrer erstmaligen verwendung initialisiert. (lacy-load)
-                                    </p>
-                            </div>
+            </div>
+
+            <hr>
+
+            <div class="feature">
+                    <i class="fa fa-archive"></i>
+                    <div>
+                            <h4>Container</h4>
+                            <p>
+                                Hubert stellt einen DI-Container bereit, basierend auf <a target="_blank" href="http://pimple.sensiolabs.org/">Pimple</a>.
+                                Die in der Konfiguration definierten Container stehen global zur Verfügung und werden erst bei Ihrer erstmaligen Verwendung initialisiert. (lazy-load)
+                            </p>
                     </div>
+            </div>
 
-                    <hr/>
-
+            <hr/>
 
 			<div class="feature">
 				<i class="fa fa-map-signs"></i>
 				<div>
 					<h4>Router</h4>
-                                        <p>
-                                            Hubert verwendet den <a target="_blank" href="https://github.com/dannyvankooten/AltoRouter">AltoRouter</a>. 
-                                            Die Routen werden in der Konfiguration definiert und können Funktionen sein oder verweiße auf Funktionen.
-                                        </p>
+                        <p>
+                            Hubert verwendet den <a target="_blank" href="https://github.com/dannyvankooten/AltoRouter">AltoRouter</a>.
+                            Die Routen werden in der Konfiguration definiert und können Funktionen sein oder Verweise auf Funktionen.
+                        </p>
 				</div>
 			</div>
 
@@ -94,13 +100,10 @@
 				<i class="fa fa-book"></i>
 				<div>
 					<h4>PSR-7 implementation</h4>
-                                        <p>Über die <a target="_blank" href="https://zendframework.github.io/zend-diactoros/">PSR-7</a> Implementierung steht der Request als Container bereit und Routen können mit standardisierten Response-Objekten arbeiten.</p>
+                        <p>Über die <a target="_blank" href="https://zendframework.github.io/zend-diactoros/">PSR-7</a> Implementierung steht der Request als Container bereit und Routen können mit standardisierten Response-Objekten arbeiten.</p>
 				</div>
 			</div>
 
-			
-
-			
 
 		</div>
 

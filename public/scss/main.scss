@@ -1,7 +1,5 @@
 /*basics*/
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400');
-
 $lightgreen: #ebfd97;
 $midgreen: #36ab66;
 $darkgreen: #03614b;
@@ -48,14 +46,12 @@ $darkgrey: #697168;
 html{
 	overflow-x: hidden;
 	width: 100%;
-	height: 100%;
 }
 
 body{
 	overflow-x: hidden;
 	position: relative;
 	width: 100%;
-	height: 100%;
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -73,6 +69,7 @@ header{
 
 	img.hubert{
 		margin: 3rem 0;
+		width: 12.5rem;
 	}
 
 	.window{
@@ -167,6 +164,39 @@ footer{
 	text-align: center;
 	color: $midgrey;
 	font-size: 1rem;
+
+	section{
+
+		ul{
+			padding: 0;
+
+			li{
+				list-style-type: none;
+				display: inline-block;
+				color: $darkgrey;
+
+				a{
+					font-weight: bolder;
+
+					&:after{
+						content: '|';
+						margin: 0 1rem;
+						font-weight: bolder;
+						color: $darkgrey;
+					}
+
+				}
+
+				&:last-of-type a:after{
+					content: none;
+				}
+
+			}
+
+		}
+
+	}
+
 }
 
 h1{
@@ -249,63 +279,4 @@ a{
     right: 10px;
 }
 
-.clearfix:after {
-    content: ".";
-    clear: both;
-    display: block;
-    visibility: hidden;
-    height: 0px;
-}
 
-/*ducumentation ##############################################################*/
-main.doc {
-    @extend .clearfix;
-}
-
-section.menu {
-    width: 25%;
-    float: left;
-}
-
-section.content {
-    margin-left: 25%;
-    max-width: 75%;
-    padding: 20px;
-}
-
-ul.m {
-    list-style: none;
-    padding: 10px;
-    
-    .m-header {
-        margin-left: 20px;
-        line-height: 50px;
-    }
-    
-    .m-item a {
-        display: block;
-        line-height: 30px;
-        padding-left: 30px;
-    }
-    
-    .m-item.active {
-        color: #000;
-    }
-}
-
-pre {
-    background: #f9f9f9 none repeat scroll 0 0;
-    border-left: 0.2rem solid #5764c6;
-    line-height: 1.8rem;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    overflow: auto;
-    padding: 1.5rem;
-    font-family: monospace,monospace;
-    font-size: 1em;
-    
-    code {
-        padding: 0.1em 0.3em;
-        vertical-align: baseline;
-    }
-}

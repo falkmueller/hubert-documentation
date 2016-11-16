@@ -21,15 +21,19 @@
   <body>
    
     <?=$this->section('content')?>
-      
-      
-    <footer>
-            <section>
-                    made with <i class="fa fa-heart"></i> in leipzig<br/>
-            </section>
-    </footer>
-      
 
+    <footer>
+        <section>
+	        <ul>
+		        <li><a href="<?php echo $this->url(["name" => "doc", "params" => ["language" => "en", "path" => "documentation"]]) ?>"><? echo $translate["doc"] ?></a></li>
+		        <li><a href="https://falk-m.de/impressum/" target="_blank"><? echo $translate["imp"] ?></a></li>
+		        <li><a href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "$translate[slug]"]]) ?>"><? echo $translate["wording"] ?></a></li>
+	        </ul>
+        </section>
+        <section>
+                made with <i class="fa fa-heart"></i> in leipzig<br/>
+        </section>
+    </footer>
       
     <script src="<?= $this->baseUrl("/public/scripts/jquery-3.1.0.min.js") ?>"></script>
      <?=$this->section('scripts')?>
