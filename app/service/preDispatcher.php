@@ -9,23 +9,7 @@ class preDispatcher {
     }
     
     public function preDispatch(){
-        $language = $this->setLocale();
-        
-        if ($language == "de"){
-            hubert()->template->addData(array("translate" => array(
-                    "doc" => "Dokumentation",
-                    "slug" => "en",
-                    "wording" => "English",
-                    "imp" => "Impressum"
-            )));
-        } else {
-            hubert()->template->addData(array("translate" => array(
-                    "doc" => "Documentation",
-                    "slug" => "de",
-                    "wording" => "Deutsch",
-                    "imp" => "Imprint"
-            )));
-        }
+        $this->setLocale();
     }
     
     private function setLocale(){

@@ -14,5 +14,8 @@ msgstr ""
 "Language-Team: \n"
 "Language: de_DE\n"
 
-msgid "you have no access to this area"
-msgstr "Sie haben keine Berechtigung für diesen Bereich"
+msgid "Imprint"
+msgstr "Impressum"
+
+msgid "Documentation"
+msgstr "Dokumentation"
