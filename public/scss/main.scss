@@ -4,6 +4,7 @@ $lightgreen: #ebfd97;
 $midgreen: #36ab66;
 $darkgreen: #03614b;
 $bluegreen: #009ad1;
+$brightgrey: #f5f5f5;
 $lightgrey: #f0f2f1;
 $midgrey: #bfc1c0;
 $darkgrey: #697168;
@@ -28,6 +29,13 @@ $darkgrey: #697168;
 
 .hardshadow {
 	box-shadow: 0 0.1rem 1.5rem rgba(0, 0, 0, 0.35rem);
+}
+
+.panel{
+	@extend .softshadow;
+	background: white;
+	border-radius: 0.2rem;
+	padding: 1rem 1.5rem;
 }
 
 *,
@@ -241,11 +249,8 @@ a{
 }
 
 .panel{
-	@extend .softshadow;
+	@extend .panel;
 	overflow: hidden;
-	background: white;
-	border-radius: 0.2rem;
-	padding: 1rem 1.5rem;
 	margin-bottom: 5rem;
 
 	.feature{

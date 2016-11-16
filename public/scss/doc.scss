@@ -1,62 +1,142 @@
 
-/*
-.clearfix:after {
-	content: ".";
-	clear: both;
-	display: block;
-	visibility: hidden;
-	height: 0px;
+
+/*base layout*/
+.doc{
+	display: flex;
+	flex-wrap: wrap;
+
+	> a{
+		width: 100%;
+		padding: 1rem;
+		padding-bottom: 0.5rem;
+		@extend .greengradient;
+
+		img{
+			width: 5rem;
+		}
+
+	}
+
+	section{
+		margin: 0;
+		padding: 3rem 2rem;
+		color: $darkgrey;
+		font-size: 1rem;
+
+		&.menu{
+			width: 20%;
+			max-width: 20rem;
+		}
+
+		&.content{
+			width: 80%;
+			padding-bottom: 10rem;
+		}
+
+	}
+
+	h1,h2,h3,h4{
+		text-shadow: none;
+		text-align: left;
+		margin: 0;
+	}
+
 }
 
-main.doc {
-	@extend .clearfix;
-}
-*/
 
+
+/*menu*/
 section.menu {
-	width: 25%;
-	float: left;
-}
 
-section.content {
-	margin-left: 25%;
-	max-width: 75%;
-	padding: 20px;
-}
-
-ul.m {
-	list-style: none;
-	padding: 10px;
-
-	.m-header {
-		margin-left: 20px;
-		line-height: 50px;
-	}
-
-	.m-item a {
+	img{
+		position: relative;
 		display: block;
-		line-height: 30px;
-		padding-left: 30px;
+		width: 100%;
+		max-width: 10rem;
 	}
 
-	.m-item.active {
-		color: #000;
+	ul{
+		list-style: none;
+		padding: 0;
+
+		li{
+
+			&:not([class]):not(:first-of-type){
+				margin-top: 2rem;
+			}
+
+			h3{
+				font-size: 1rem;
+				font-weight: bolder;
+			}
+
+			&.active {
+				text-decoration: underline;
+			}
+
+		}
+
 	}
+
 }
 
-/*pre {
-    background: #f9f9f9 none repeat scroll 0 0;
-    border-left: 0.2rem solid #5764c6;
-    line-height: 1.8rem;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    overflow: auto;
-    padding: 1.5rem;
-    font-family: monospace,monospace;
-    font-size: 1em;
 
-    code {
-        padding: 0.1em 0.3em;
-        vertical-align: baseline;
-    }
-}*/
+
+/*content*/
+section.content {
+
+	h1{
+		margin-bottom: 2rem;
+	}
+
+	h2{
+		margin-top: 3.5rem;
+	}
+
+	h3{
+		font-size: 1rem;
+		font-weight: bolder;
+		margin-top: 1rem;
+	}
+
+	ul{
+		margin: 1rem 0;
+
+		li{
+			line-height: 2;
+		}
+
+	}
+
+	p{
+
+		a{
+			color: $midgreen;
+			font-weight: bolder;
+			-webkit-font-smoothing: antialiased;
+		}
+
+	}
+
+	pre{
+		@extend .panel;
+		overflow: scroll;
+		margin: 1rem 0;
+
+		code{
+			font-size: 0.8rem;
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
