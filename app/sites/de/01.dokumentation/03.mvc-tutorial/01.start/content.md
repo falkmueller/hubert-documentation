@@ -6,11 +6,14 @@
 .
 ├── src/
 │   ├── controller/
+│   ├── model/
 │   └── templates/
 ├── config/
 │   ├── general.global.php
 │   └── routes.global.php
 ├── data/
+│   ├── cache/
+│   └── logs/
 ├── public/
 │   ├── images/
 │   └── ...
@@ -19,10 +22,10 @@
 ├── .htaccess
 ```
 
-The "src"-folder is later used and containes templates, contoller, models, etc. of your application.    
-The "config"-folder containes all configutaion files.   
-The "data"-folder is uses later to log errors and use caching.    
-The "public"-folder contains all files, how have directly public access, like images, styles and javascript-files.
+Der "src"-Ordner beinhaltet den Code der Anwendung, also Controller,, templates, Models, Librarys, ...    
+Der "config"-Ordner beinhaltet die Konfigurations-Datein.
+Der "data"-Ordner beinhaltet daten, wie Log-Dateien und Cache-Dateien.
+Der "public"-Ordner beinhaltet Dateien, welche direkt im Browser aufrufbar sind, wie Styles, Bilder und Javascripte. 
 
 ## der Einstieg
 
@@ -41,8 +44,8 @@ hubert()->core()->run();
 ```
 
 ###.htaccess
-The htaccess defines the url-rewrite.
-All files should be route to your index.php, only files from folder "public" have directly external access.
+In der htaccess Datei wird konfiguriert, dass alle Anfragen auf die index.php geleitet werden,
+mit außnahme der Dateien im Ordner "public".
 
 ```rouge
 #disable directory listing
@@ -72,7 +75,8 @@ RewriteRule ^(.*)$ index.php [NC,L,QSA]
 
 ### config/general.global.php
 
-This file containes the standard configuration, for start, its only the configuration, if errors details be displayed in browser.
+in der Standard-Configuration erlauben wir vorerst das Anzeigen von Fehlermeldungen und
+fügen den Namespace für unseren Code aus dem Order "src" den Autoloader hinzu.
 
 ```php
 <?php

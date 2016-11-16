@@ -88,3 +88,13 @@ Optionale Parameter enden auf "?"
 ```
 
 Weitere Informationen findest du auf [altorouter.com](http://altorouter.com/)
+
+## Urls bilden
+```php
+$base = hubert()->router->getBasePath();
+$url_home = hubert()->router->get("home");
+$mvc_url = hubert()->router->get("mvc", ["controller" => "index", "action" => "index"])
+```
+
+Der Router hat die Function "getBasePath()", welche einen die Basis-Ulr der Anwendung liefert.
+Des weiteren gibt es die Funktion "get($name, $params = array(), $query = array())", über welche man Urls zu fefinieren Routen bilden kann.
