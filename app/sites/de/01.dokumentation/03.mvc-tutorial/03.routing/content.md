@@ -46,6 +46,7 @@ Hierfür kann man in der Configuration ein "preDispatch" definieren:
         "preDispatch" => array(src\service\preDispatcher::class, 'get')
     ),
 ```
+Dies kann auch als Array definiert werden, wenn es mehrere preDisptcher gibt.
 
 in dem Beispiel wäre der preDispatch definiert in der Datei "src/service/preDispatcher":
 ```php
@@ -69,3 +70,32 @@ class preDispatcher {
 im Predispatcher könnte man nun zum Beispiel anhand der Browser-Variablen die Sprache bestimmen, etc.  
 Wenn die Funktion eine Rückgabe vom Type Response hat, wird diese Rückgabe ausgegeben und die eigendliche Route gar nicht ausgeführt.
 Dies kann man zum Beispiel für ein Rechtemanagment nutzen.
+
+## postDispatch
+postDisptach-Funktionen werden nach dem Routing ausgeführt und dienen dazu den Response zu manipulieren.
+Hierfür kann man in der Configuration ein "postDispatch" definieren:
+```php
+ "factories" => array(
+        "postDispatch" => array(src\service\postDispatcher::class, 'get')
+    ),
+```
+Dies kann auch als Array definiert werden, wenn es mehrere postDisptcher gibt.
+
+in dem Beispiel wäre der postDispatch definiert in der Datei "src/service/postDispatcher":
+```php
+<?php
+
+namespace src\service;
+
+class postDispatcher {
+    
+    public static function get($container){
+        return array(new static(), 'postDispatch');
+    }
+    
+    public function postDispatch($response){
+        //do something
+        
+    }
+}
+```
