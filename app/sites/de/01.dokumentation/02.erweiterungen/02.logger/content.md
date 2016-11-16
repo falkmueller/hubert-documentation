@@ -15,7 +15,7 @@ Zuerst muss die Configuration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die konfiguration oder legt eine neue Datei "config/logger.global.php" an:
+Anschließend erweitert man die konfiguration oder legt eine neue Datei _config/logger.global.php_ an:
 ```php
 <?php
 return array(
@@ -31,7 +31,7 @@ return array(
 );
 ```
 
-In der Konfiguration oben wird definiert, dass log-Datein unter "logs/" abgelegt werden und das Fehlermeldungen nicht im Frontend ausgegeben werden sollen.
+In der Konfiguration oben wird definiert, dass log-Datein unter _logs/_ abgelegt werden und das Fehlermeldungen nicht im Frontend ausgegeben werden sollen.
 
 
 ## Verwendung
@@ -40,6 +40,6 @@ In der Konfiguration oben wird definiert, dass log-Datein unter "logs/" abgelegt
  hubert()->logger->error("test-error");
 ```
 
-Der Befehl erzeut eine Datei mit TagesDatum, zum Beispiel "logs/2016-01-31.log" und schreibt die Fehlermeldung "test-error" hinein.
+Der Befehl erzeut eine Datei mit TagesDatum, zum Beispiel _logs/2016-01-31.log_ und schreibt die Fehlermeldung _"test-error"_ hinein.
 
 Wie Log-Datein aufgebaut sind, welche Möglichkeiten des Logging es gibt, etc kann unter [github.com/Seldaek/monolog](https://github.com/Seldaek/monolog) nachgelesen werden.

@@ -15,7 +15,7 @@ Zuerst muss die Configuration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die konfiguration oder legt eine neue Datei "config/database.global.php" an:
+Anschließend erweitert man die konfiguration oder legt eine neue Datei _config/database.global.php_ an:
 ```php
 <?php
 return array(
@@ -46,7 +46,7 @@ Beschreibungen zur Verwendung, kann unter [docs.zendframework.com/zend-db/](http
 ## Models
 
 Die hubert-Erweiterung beinhaltet unter anderen noch ein Struktur für Models.
-zum Beispiel kann man eine Datei "model/user.php" anlegen:
+zum Beispiel kann man eine Datei _model/user.php_ anlegen:
 ```php
 <?php
 namespace model;
@@ -87,7 +87,7 @@ class user extends \hubert\extension\db\model {
 }
 ```
 
-alle Modelle haben als Standard die statischen Funktionen "selectOne" und "selectAll":
+alle Modelle haben als Standard die statischen Funktionen _selectOne($where)_ und _selectAll($where)_:
 ```php
     print_r(json_encode(\model\user::selectOne(["id" => 1])));
     print_r(json_encode(\model\user::selectAll()));

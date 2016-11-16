@@ -4,7 +4,7 @@ Bootstrap-Klassen können genutz werden um Code nach oder vor Ausführung der An
 Dies ist nützlich, wenn man zum Beispiel den Usernamen aus der Session global als Variable indie Templates geben möchte.
 
 Um eine bootstrap-Klasse zu nutzen muss dise in der Konfiguration angegeben werden.
-Im Beispiel fügen wir dies in die Datei config/general.global.php ein:
+Im Beispiel fügen wir dies in die Datei _config/general.global.php_ ein:
 ```php
 <?php
 return array( 
@@ -15,7 +15,7 @@ return array(
 ```
 Bei mehreren Bootstrap-Klassen können diese auch als Array angegeben werden.
 
-Die eigendliche Bootstrap Klasse wäre in dem Falle in der Datei "src\bootstrap.php":
+Die eigendliche Bootstrap Klasse wäre in dem Falle in der Datei _src\bootstrap.php_:
 ```php
 <?php
 
@@ -38,8 +38,8 @@ class bootstrap extends \hubert\generic\bootstrap {
     }
 ```
 
-Bootstrap-Klassen erben Eigenschaften von "\hubert\generic\bootstrap".
-(oder Sie müssen selbstständig das inerface "hubert\interfaces\bootstrap" implementieren)
+Bootstrap-Klassen erben Eigenschaften von _\hubert\generic\bootstrap_.
+(oder Sie müssen selbstständig das inerface _hubert\interfaces\bootstrap_ implementieren)
 
 Die init-Funktion einer Bootstrap wird vor dem Routing ausgeführt.
 Die preDispatch-Funktion wird nach der Ermittlung der aktuellen Route ausgeführt, aber noch vor dem eigendlichen dispatch-Event.

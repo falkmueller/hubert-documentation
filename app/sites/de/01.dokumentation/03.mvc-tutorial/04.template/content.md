@@ -10,7 +10,7 @@ Befor man mit den Tampletes beginnt muss man die TemplateExtension per composer 
 ```
 
 
-Anschließend legen wir eine "config/template.global.php" Datei an:
+Anschließend legen wir eine _config/template.global.php_ Datei an:
 ```php
 <?php
 return array(
@@ -30,8 +30,8 @@ return array(
 ```
 
 Im controller haben wir gesehen, dass die home-Rpute die indexAction des IndexControllers aufruft.
-Diese hat als Rückgabe "$this->responseTemplate("index/index", ["name" => "Hubert"])".
-Es wird also das Template "src/templates/index/index.phtml" geladen und diesem die Variable $name übergeben.
+Diese hat als Rückgabe _$this->responseTemplate("index/index", ["name" => "Hubert"])_.
+Es wird also das Template _src/templates/index/index.phtml_ geladen und diesem die Variable $name übergeben.
 
 ```html
 <?php $this->layout('layout') ?>
@@ -42,7 +42,7 @@ Name: <?= $name ?>
 
 Im Beispiel geben wir die Variable aus und laden das layout namens "layout".
 
-Dies liegt ebenfalls im Template-Pfad unter "src/temnplates/layout.phtml":
+Dies liegt ebenfalls im Template-Pfad unter _src/temnplates/layout.phtml_:
 ```html
 <html>
     <head>
@@ -64,6 +64,6 @@ Weitere Infos zum Umgang mit Plates-Templates findes du unter [platesphp.com](ht
 # Template Erweiterungen
 
 In der Konfigutation wird eine ulrExtension geladen. Diese stellt innerhalt der Templates drei Funtionen zur verfügung:
-- $this->url($name, $params = array(), $query = array()): Diese funktion kann zum bilden von Urls verwendet werden, equivalent zu hubert()->router->url($name, $params = array(), $query = array())
-- $this->baseUrl($relPath): bildet eine Url. kann verwendet werden für Styles zum Beispiel: $this->baseUrl("/public/styles.css")
-- $this->current_route(): gibt die aktuelle Router mit Namen und Parametern zurück. Dies kann Nutzlich sein, wenn man zum Beispiel links im Template als "active" markieren möchte.
+- _$this->url($name, $params = array(), $query = array())_: Diese funktion kann zum bilden von Urls verwendet werden, equivalent zu hubert()->router->url($name, $params = array(), $query = array())
+- _$this->baseUrl($relPath)_: bildet eine Url. kann verwendet werden für Styles zum Beispiel: $this->baseUrl("/public/styles.css")
+- _$this->current\_route()_: gibt die aktuelle Router mit Namen und Parametern zurück. Dies kann Nutzlich sein, wenn man zum Beispiel links im Template als "active" markieren möchte.

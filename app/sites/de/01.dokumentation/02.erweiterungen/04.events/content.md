@@ -15,7 +15,7 @@ Zuerst muss die Configuration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die konfiguration oder legt eine neue Datei "config/event.global.php" an:
+Anschließend erweitert man die konfiguration oder legt eine neue Datei _config/event.global.php_ an:
 ```php
 <?php
 return array(
@@ -36,7 +36,7 @@ Im Beispiel wird ein Event namens "do" ausgeführt.
 Es wird kein Scope an das Event übergeben, aber eine Variable namens "test".
 
 
-Damit auch etwas passiert, muss zuvor über die Funktion "attach" dem Event eine Aktion zugewiesen worden sein:
+Damit auch etwas passiert, muss zuvor über die Funktion _attach($event\_name, $event\_target)_ dem Event eine Aktion zugewiesen worden sein:
 ```php
  hubert()->eventManager->attach('do', function ($e) {
                         $event = $e->getName();

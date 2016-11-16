@@ -15,7 +15,7 @@ Zuerst muss die Configuration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die konfiguration oder legt eine neue Datei "config/session.global.php" an:
+Anschließend erweitert man die konfiguration oder legt eine neue Datei _config/session.global.php_ an:
 ```php
 <?php
 return array(

@@ -22,10 +22,10 @@
 ├── .htaccess
 ```
 
-Der "src"-Ordner beinhaltet den Code der Anwendung, also Controller,, templates, Models, Librarys, ...    
-Der "config"-Ordner beinhaltet die Konfigurations-Datein.
-Der "data"-Ordner beinhaltet daten, wie Log-Dateien und Cache-Dateien.
-Der "public"-Ordner beinhaltet Dateien, welche direkt im Browser aufrufbar sind, wie Styles, Bilder und Javascripte. 
+Der _src_-Ordner beinhaltet den Code der Anwendung, also Controller, Templates, Models, Librarys, ...    
+Der _config_-Ordner beinhaltet die Konfigurations-Datein.    
+Der _data_-Ordner beinhaltet daten, wie Log-Dateien und Cache-Dateien.    
+Der _public_-Ordner beinhaltet Dateien, welche direkt im Browser aufrufbar sind, wie Styles, Bilder und Javascripte. 
 
 ## der Einstieg
 

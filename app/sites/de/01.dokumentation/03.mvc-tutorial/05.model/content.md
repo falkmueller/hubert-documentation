@@ -9,7 +9,7 @@ Befor man mit den Models beginnt muss man die DB-Extension per composer laden:
 }
 ```
 
-Anschließend legen wir eine "config/database.global.php" Datei an:
+Anschließend legen wir eine _config/database.global.php_ Datei an:
 ```php
 <?php
 return array(
@@ -30,7 +30,7 @@ Infos zur Konfiguration und findest du unter [docs.zendframework.com/zend-db](ht
 
 ## model definieren
 
-Für unser beispiel legen wir ein Model "user" an in der Datei "src/model/user.php"
+Für unser beispiel legen wir ein Model "user" an in der Datei _src/model/user.php_
 ```php
 <?php
 
@@ -73,9 +73,9 @@ class user extends \hubert\extension\db\model {
 }
 ```
 
-Modles müssen von "\hubert\extension\db\model" erben.
-Des weiteren muss in einer statischen Variable $table die Datenbanktabelle zu dem Model definiert werden
-und in einer statischen funktion "fields" die Felder dieser Tabelle.
+Modles müssen von _\hubert\extension\db\model_ erben.
+Des weiteren muss in einer statischen Variable _$table_ die Datenbanktabelle zu dem Model definiert werden
+und in einer statischen funktion _fields()_ die Felder dieser Tabelle.
 Die dabei im Array angegebenen Typen sind nur Informativ und werdne derzeit nicht genutzt.
 
 ## Arbeiten mit models
@@ -88,5 +88,5 @@ Die dabei im Array angegebenen Typen sind nur Informativ und werdne derzeit nich
     print_r($user->getRoleIds());
 ```
 
-Dadurch, dass models von '\hubert\extension\db\model' erben, stehen die statischen funtionen "selectOne($selectors)" und "selectAll($selectors)" zur verfügung.
+Dadurch, dass models von _\hubert\extension\db\model_ erben, stehen die statischen funtionen _selectOne($where)_ und _selectAll($where)_ zur verfügung.
 Im Beispiel haben wir noch ein Update-Funktion definiert um bestimmte Attrebute in der Datenbank updaten zu können.

@@ -28,13 +28,13 @@ Nun initialisert man Hubert mit dieser Konfiguration:
 hubert($config);
 ```
 
-Zum Schluss füht man den "run"-Befehlr der Core-Komponente aus:
+Zum Schluss führt man den "run"-Befehl der Core-Komponente aus:
 ```php
 hubert()->core()->run();
 ```
 
 
-Hier die komplette "index.php"-Datei:
+Hier die komplette _index.php_:
 ```php
 <?php
 
@@ -58,7 +58,7 @@ hubert()->core()->run();
 ### Serverkonfiguration
 
 Der Server muss so konfiguriert werden dass es alle Anfragen auf unsere index.php leitet.
-Für Apache-Server definiert man eine .htaccess-Datei mit folgenden Inhalt:
+Für Apache-Server definiert man eine _.htaccess_ mit folgenden Inhalt:
 ```rouge
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d

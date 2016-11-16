@@ -19,8 +19,8 @@ In diesem Bereich definiert man Namespaces mit dem dazugehörigen Order für den
 ```
 
 In diesem Beispiel wird der Namespace "app" für einen gleichnamigen Ordner definiert.    
-Zum Beispiel könnte in der datei "app/bootstrap.php" eine PHP-Klasse liegen mit dem namen "bootstrap" und dem Namespace "app".    
-Wenn man nun im Code, zum Beispiel den Routen die Klasse verwendet ($bootstrap = new \app\bootstrap()) wird diese Datei automatisch per include geladen.
+Zum Beispiel könnte in der Datei _app/bootstrap.php_ eine PHP-Klasse liegen mit dem namen "bootstrap" und dem Namespace "app".    
+Wenn man nun im Code, zum Beispiel den Routen die Klasse verwendet (_$bootstrap = new \app\bootstrap()_) wird diese Datei automatisch per include geladen.
 Dies wird später im Bereich "MVC" dieser Dokumentation.
 
 ### Factories
@@ -36,7 +36,7 @@ Factories sind statische Funktionen, welche einen Servide initialisieren.
 Dies ist ein Beispiel aus der Standardkonfiguration von Hubert (und muss desshalb nicht in der eigenen Konfiguration angegeben werden).
 Hier wird in der Klasse "router", welche im Namespace "hubert\service" liegt die statische Funktion "factory" als Initiator für den Router gefiniert.
 Diese Funktion gibt also den Router als Objekt zurück.
-Der definierte Service ist dann über "hubert()->router" global verfügbar und wird erst bei seiner erstmaligen verwendung initialisiert.
+Der definierte Service ist dann über _hubert()->router_ global verfügbar und wird erst bei seiner erstmaligen verwendung initialisiert.
 im Bereich "Erweiterungen" dieser Dokumentation wird beschrieben, wie man eigene services definiert.
 
 ### Einstellungen
@@ -97,7 +97,7 @@ Dies ist für sehr kleine Anwendungen gedacht.
 
 ### Konfiguration in Datei
 Diesen Array kann man auch in eine seperate Datei auslagern.
-Zum beispiel eine config.php-Datei
+Zum Beispiel eine _config.php_-Datei
 ```php
 return array(
     "routes" => array(
@@ -120,7 +120,7 @@ hubert("config.php");
 ### Konfiguration über einen Ordner
 
 Dies ist der beste Weg zur Konfiguration von hubert.    
-Dabei wird ein Ordner "config" angelegt und die Konfigurationen werden nach Theme sortiert in verschiedenen Datein abgelegt.
+Dabei wird ein Ordner _/config_ angelegt und die Konfigurationen werden nach Theme sortiert in verschiedenen Datein abgelegt.
 
 geladen Werden die Konfigurationen in dem man hubtert beim initialisieren den Pfad zu diesem Ordner gibt:
 ```php
@@ -129,12 +129,12 @@ $app->loadConfig('config/');
 
 Dabei gibt es drei verschiedenen Endungen für die Konfigurations-Datein in diesen Ordner.
 Wenn verschiedene Datein die gleiche konfiguration beinhalten, entscheidet die Endung, welche Konfiguration gilt.
-- **.default.php**: in dieser werden Standard-Konfigurationen eingestellt.
-- **.global.php**: in dieser werden Konfigurationen eingestellt, welche für deine Anwendung gelten, wir Routen zum Beispiel.
-- **.local.php**: in Konfigurationsdatein mit dieser Endung definiert man zum Beispiel die Datenbank-Verbindung, da diese nur lokal gilt und andere Entwickler an der Anwedung zum beispiel andere Einstellungen verwenden.
+- _.default.php_: in dieser werden Standard-Konfigurationen eingestellt.
+- _.global.php_: in dieser werden Konfigurationen eingestellt, welche für deine Anwendung gelten, wir Routen zum Beispiel.
+- _.local.php_: in Konfigurationsdatein mit dieser Endung definiert man zum Beispiel die Datenbank-Verbindung, da diese nur lokal gilt und andere Entwickler an der Anwedung zum beispiel andere Einstellungen verwenden.
 
 Hier ein kleines Bespiel zur verdeutlichung:
-Wir haben eine Datei "config/general.global.php" in welcher wir eine Route definieren und eine Einstellung, dass Fehler nicht angezeigt werden sollen:
+Wir haben eine Datei _config/general.global.php_ in welcher wir eine Route definieren und eine Einstellung, dass Fehler nicht angezeigt werden sollen:
 ```php
 <?php
 return array(
@@ -152,7 +152,7 @@ return array(
 );
 ```
 
-in deiner lokalen Entwicklungsumgebung legst du noch eine Datei "config/general.local.php" an, in welcher du definierst, dass du Fehlermeldungen sehen möchtest:
+in deiner lokalen Entwicklungsumgebung legst du noch eine Datei _config/general.local.php_ an, in welcher du definierst, dass du Fehlermeldungen sehen möchtest:
 ```php
 <?php
 return array(

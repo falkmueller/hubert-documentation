@@ -49,8 +49,8 @@ $config = array(
 ```
 
 die Route "hello" trifft nur auf "/hello" zu, nicht auf "/hello/".
-Mann könnte '"route" => "/hello/"' verwenden, damit die Route zutrifft, wenn ein Slash am ende steht,
-oder über "[/]?" am Ende der Route das letzte Slash optional machen: 
+Mann könnte _"route" => "/hello/"_ verwenden, damit die Route zutrifft, wenn ein Slash am ende steht,
+oder über _[/]?_ am Ende der Route das letzte Slash optional machen: 
 
 ```php
 $config = array(
@@ -96,5 +96,5 @@ $url_home = hubert()->router->get("home");
 $mvc_url = hubert()->router->get("mvc", ["controller" => "index", "action" => "index"])
 ```
 
-Der Router hat die Function "getBasePath()", welche einen die Basis-Ulr der Anwendung liefert.
-Des weiteren gibt es die Funktion "get($name, $params = array(), $query = array())", über welche man Urls zu fefinieren Routen bilden kann.
+Der Router hat die Function _getBasePath()_, welche einen die Basis-Ulr der Anwendung liefert.
+Des weiteren gibt es die Funktion _get($name, $params = array(), $query = array())_, über welche man Urls zu fefinieren Routen bilden kann.

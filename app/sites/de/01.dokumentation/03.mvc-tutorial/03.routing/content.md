@@ -1,6 +1,6 @@
 #Routing
 
-Für unser Beispiel erstellen wir die Datei "config/routes.global.php":
+Für unser Beispiel erstellen wir die Datei _config/routes.global.php_:
 ```php
 <?php return array(
     
@@ -33,14 +33,14 @@ Für unser Beispiel erstellen wir die Datei "config/routes.global.php":
 );
 ```
 
-In der Konfiguration wird man über "controller_namespace" den Namespace der Controller an.   
+In der Konfiguration wird man über _"controller\_namespace"_ den Namespace der Controller an.   
 Bei den Routen wird nun als target-Wert keine Funktion (Callable) mehr angegeben, sondern ein Array mit Controller und Action Name.   
-Sollte ein Controller einen anderen Namespace haben als der konfigurierte "controller_namespace" kann auch im target-Wert ein "Attrebut "namespace" angegeben werden mit dem abweischenden Namespace.   
+Sollte ein Controller einen anderen Namespace haben als der konfigurierte _"controller\_namespace"_ kann auch im target-Wert ein Attrebut _"namespace"_ angegeben werden mit dem abweischenden Namespace.   
 
 ## preDispatch
 Manchmal möchte man ein Event ausführen, nachdem die Route bestimmt wurde,
 aber noch befor die eigendliche Route ausgeführt wird.
-Hierfür kann man in der Configuration ein "preDispatch" definieren:
+Hierfür kann man in der Configuration ein _"preDispatch"_ definieren:
 ```php
  "factories" => array(
         "preDispatch" => array(src\service\preDispatcher::class, 'get')
@@ -48,7 +48,7 @@ Hierfür kann man in der Configuration ein "preDispatch" definieren:
 ```
 Dies kann auch als Array definiert werden, wenn es mehrere preDisptcher gibt.
 
-in dem Beispiel wäre der preDispatch definiert in der Datei "src/service/preDispatcher":
+in dem Beispiel wäre der preDispatch definiert in der Datei _src/service/preDispatcher.php_:
 ```php
 <?php
 
@@ -73,7 +73,7 @@ Dies kann man zum Beispiel für ein Rechtemanagment nutzen.
 
 ## postDispatch
 postDisptach-Funktionen werden nach dem Routing ausgeführt und dienen dazu den Response zu manipulieren.
-Hierfür kann man in der Configuration ein "postDispatch" definieren:
+Hierfür kann man in der Configuration ein _"postDispatch"_ definieren:
 ```php
  "factories" => array(
         "postDispatch" => array(src\service\postDispatcher::class, 'get')
@@ -81,7 +81,7 @@ Hierfür kann man in der Configuration ein "postDispatch" definieren:
 ```
 Dies kann auch als Array definiert werden, wenn es mehrere postDisptcher gibt.
 
-in dem Beispiel wäre der postDispatch definiert in der Datei "src/service/postDispatcher":
+in dem Beispiel wäre der postDispatch definiert in der Datei _src/service/postDispatcher.php_:
 ```php
 <?php
 

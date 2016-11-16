@@ -34,7 +34,7 @@ return array(
 );
 ```
 
-In der Konfiguration oben ist unter anderen festgelegt, dass Tempaltes im Order "templates" liegen und auf ".phtml" enden.
+In der Konfiguration oben ist unter anderen festgelegt, dass Tempaltes im Order _/templates_ liegen und auf _.phtml_ enden.
 
 
 ## Verwendung
