@@ -28,7 +28,7 @@ class bootstrap extends \hubert\generic\bootstrap {
         //hubert()->template->addData(array("name" => "ronny"));
     }
 
-    public function preDispatch($response){
+    public function preDispatch(){
         //access to current route over hubert()->current_route
         //when return a Objekt of typte Response, then routing ends bevor dispatch
     }
