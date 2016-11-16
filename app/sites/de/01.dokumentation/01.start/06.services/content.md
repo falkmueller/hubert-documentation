@@ -11,7 +11,7 @@ Wir wird im Bereich der Konfiguration gesehen haben, werden Services als Factori
 ```
 
 Services stehen anschließend über den definierten namen zur verfügung.
-Im Bespiel über hubert()->test
+Im Bespiel über _hubert()->test_
 
 die factory ist dabei eine Statische funktion.
 ```php
@@ -32,10 +32,9 @@ class test {
 }
 ```
 
-Ruft man $wert = hubert()->test->retrunTest() auf, erhält man $wert = "blub".
-Beim erstmaligen verwenden des Services wird die Facory ausgeführt.
+Ruft man _$wert = hubert()->test->retrunTest()_ auf, erhält man _$wert = "blub"_.
+Beim erstmaligen verwenden des Services wird die Facory ausgeführt. Ein Weiteres Beispiel wäre ein Service, welcher eine direkt Aufrufbare Funktion bereitstellt:
 
-ein Weiteres Beispiel wäre ein Service, welcher eine direkt Aufrufbare Funktion bereitstellt:
 ```php
 <?php
 
@@ -54,9 +53,4 @@ class add {
 }
 ```
 
-In dem Falle kann man über $c = hubert()->add(2,3) zwei Zahlen addieren.
-    
-Die Services sind in der Konfiguration überschreibbar.
-Wird in einer Konfigurationsdatei, welche auf ".global.php" endet ein Service definiert,
-welcher auch in einer Datei, welche auf ".local.php" endet definiert ist,
-so wird nur der Service, welcher in der local-Datei definiert ist inizialisiert.
+In dem Falle kann man über _$c = hubert()->add(2,3)_ zwei Zahlen addieren. Die Services sind in der Konfiguration überschreibbar. Wird in einer Konfigurationsdatei, welche auf _.global.php_ endet ein Service definiert, welcher auch in einer Datei, welche auf ".local.php" endet definiert ist, so wird nur der Service, welcher in der local-Datei definiert ist inizialisiert.

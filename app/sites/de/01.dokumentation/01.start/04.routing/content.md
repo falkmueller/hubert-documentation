@@ -2,7 +2,7 @@
 
 Als Standard-Router bring hubert den [altorouter](https://github.com/dannyvankooten/AltoRouter) mit.
 
-## eine Route
+## Eine Route
 
 
 ```php
@@ -19,11 +19,11 @@ $config = array(
 );
 ```
 
-Jede Route musss einen eindeutigen namen haben, Im Beispiel ist dies "hello".
+Jede Route musss einen eindeutigen Namen haben, Im Beispiel ist dies _hello_.
 eine Route kann aus drei Bestandteilen bestehen:
-- **route**: definiert die Uri
-- **method**: (optional) Definiert für welche Request-Typen die Route gilt. Es können mehrere Typen per "|" kombiniert angegeben werden. der Standardwert ist "GET|POST"
-- **target**: definiert, was passieren soll, wenn die Route auf den Request zutrifft. 
+- _"route"_ definiert die Uri
+- _"method"_ (optional) Definiert für welche Request-Typen die Route gilt. Es können mehrere Typen per _|_ kombiniert angegeben werden. der Standardwert ist _"GET|POST"_
+- _"target"_ definiert, was passieren soll, wenn die Route auf den Request zutrifft
 
 
 ## Route-Matching
