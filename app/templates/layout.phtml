@@ -25,9 +25,9 @@
     <footer>
         <section>
 	        <ul>
-		        <li><a href="<?php echo $this->url(["name" => "doc", "params" => ["language" => "en", "path" => "documentation"]]) ?>"><? echo $translate["doc"] ?></a></li>
+		        <li><a href="<?php echo $this->url("doc", ["language" => "en", "path" => "documentation"]) ?>"><? echo $translate["doc"] ?></a></li>
 		        <li><a href="https://falk-m.de/impressum/" target="_blank"><? echo $translate["imp"] ?></a></li>
-		        <li><a href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "$translate[slug]"]]) ?>"><? echo $translate["wording"] ?></a></li>
+		        <li><a href="<?php echo $this->url("home_language", ["language" => "$translate[slug]"]) ?>"><? echo $translate["wording"] ?></a></li>
 	        </ul>
         </section>
         <section>

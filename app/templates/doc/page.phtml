@@ -10,7 +10,7 @@
                     </li>
                     <?php foreach ($node->getChildren() as $c_node){ ?>
                         <li class="m-item <?= ($c_node->isActive($current) ? "active" :"") ?>">
-                            <a href="<?= $this->url(["name" => "doc", "params" => ["language" => $language, "path" => $c_node->getUrlPath()]]) ?>">
+                            <a href="<?= $this->url("doc", ["language" => $language, "path" => $c_node->getUrlPath()]) ?>">
                                 <?= $c_node->getDisplayName() ?>
                             </a>
                         </li>

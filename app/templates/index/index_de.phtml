@@ -1,17 +1,7 @@
-
-<?php
-$translate = array(
-	"doc" => "Dokumentation",
-	"slug" => "en",
-	"wording" => "English",
-	"imp" => "Impressum"
-);
-?>
-
-<?php $this->layout('layout',['translate' => $translate]) ?>
+<?php $this->layout('layout') ?>
 
 <?php $this->start('head') ?>
-    <link rel="canonical" href="<?php echo $this->url(["name" => "home_language", "params" => ["language" => "de"]]) ?>" />
+    <link rel="canonical" href="<?php echo $this->url("home_language", ["language" => "de"]) ?>" />
 <?php $this->stop() ?>
 
 
