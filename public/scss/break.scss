@@ -1,0 +1,133 @@
+/*break mid*/
+@media screen and (max-width: 1000px) {
+
+	footer{
+		section{
+			ul{
+				li{
+					a{
+						&:after{
+							margin: 0 0.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.doc{
+
+		section{
+			width: 100% !important;
+
+			&.menu{
+				border-bottom: 1px solid $midgrey;
+				max-width: none;
+				padding-bottom: 0;
+
+				> ul{
+					display: flex;
+					flex-wrap: wrap;
+
+					> li{
+						width: 10rem;
+						margin-bottom: 2rem;
+
+						&:not([class]):not(:first-of-type){
+							margin-top: 0;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+
+/*break small*/
+@media screen and (max-width: 500px) {
+
+	header {
+		img.hubert {
+			margin: 1.5rem 0;
+		}
+	}
+
+	section{
+		padding: 3rem 1rem;
+	}
+
+	h1{
+		font-size: 3rem;
+	}
+
+	h2{
+		font-size: 2.5rem;
+	}
+
+	.panel{
+		.feature{
+			.fa{
+				display: none;
+			}
+			div{
+				margin: 0;
+			}
+		}
+	}
+
+	.doc{
+
+		.toggle{
+			display: block;
+			width: 100%;
+			margin: 0 2rem;
+			cursor: pointer;
+
+			.fa{
+				margin: 2rem 0.25rem;
+			}
+
+		}
+
+		section{
+			width: 100% !important;
+
+			&.menu{
+				display: none;
+				border-bottom: 1px solid $midgrey;
+				max-width: none;
+				padding-top: 0;
+				padding-bottom: 0;
+
+				&.active{
+					display: block;
+				}
+
+				> ul{
+					display: flex;
+					flex-wrap: wrap;
+
+					> li{
+						width: 7.5rem;
+						margin-bottom: 2rem;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

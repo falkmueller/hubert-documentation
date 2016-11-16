@@ -8,6 +8,7 @@
 	</a>
 	<br>
 
+	<span class="toggle" onclick="$('.menu').toggleClass('active')"><i class="fa fa-list"></i><i class="fa fa-caret-down"></i></span>
 	<section class="menu">
 		<ul>
 
@@ -15,17 +16,20 @@
 
 				<li>
 					<h3><?= $node->getDisplayName() ?></h3>
+					<ul>
+
+						<?php foreach ($node->getChildren() as $c_node) { ?>
+
+							<li class="<?= ($c_node->isActive($current) ? "active" : "") ?>">
+								<a href="<?= $this->url("doc", ["language" => $language, "path" => $c_node->getUrlPath()]) ?>">
+									<?= $c_node->getDisplayName() ?>
+								</a>
+							</li>
+
+						<?php } ?>
+
+					</ul>
 				</li>
-
-				<?php foreach ($node->getChildren() as $c_node) { ?>
-
-					<li class="<?= ($c_node->isActive($current) ? "active" : "") ?>">
-						<a href="<?= $this->url("doc", ["language" => $language, "path" => $c_node->getUrlPath()]) ?>">
-							<?= $c_node->getDisplayName() ?>
-						</a>
-					</li>
-
-				<?php } ?>
 
 			<?php } ?>
 

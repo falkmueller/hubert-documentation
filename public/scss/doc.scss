@@ -7,18 +7,17 @@
 
 	> a{
 		width: 100%;
-		padding: 1rem;
-		padding-bottom: 0.5rem;
+		padding: 1.35rem 0.65rem 0.35rem 0.65rem;
 		@extend .greengradient;
 
 		img{
 			width: 5rem;
-			-moz-transform: scaleX(-1);
-			-o-transform: scaleX(-1);
-			-webkit-transform: scaleX(-1);
-			transform: scaleX(-1);
 		}
 
+	}
+
+	.toggle{
+		display: none;
 	}
 
 	section{
@@ -154,16 +153,6 @@ section.content {
 	}
 
 }
-
-
-
-
-
-/*break*/
-
-
-
-
 
 
 

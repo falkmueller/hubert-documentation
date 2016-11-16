@@ -108,6 +108,8 @@ header{
 		pre{
 			counter-reset: line;
 			line-height: 0;
+			font-family: "Courier New", Courier, monospace;
+			font-size: 0.8rem;
 
 			.line{
 				display: block;
@@ -161,7 +163,7 @@ section{
 	width: 100%;
 	max-width: 900px;
 	margin: auto;
-	padding: 3em 0;
+	padding: 3rem 0;
 }
 
 section + section{
@@ -216,6 +218,7 @@ h1{
 h2{
 	font-size: 2.5rem;
 	text-align: center;
+	line-height: 1.2;
 	margin: 2rem 0;
 }
 
@@ -278,10 +281,7 @@ a{
 
 }
 
-.submenu {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
+
+
 
 
