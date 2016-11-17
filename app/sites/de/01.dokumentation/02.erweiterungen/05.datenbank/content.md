@@ -101,4 +101,4 @@ Im Beispiel wurden weitere Funktionen definiert.
 
     print_r($user->getRoleIds());
 ```
-Im Beispiel siht man, wie man Werte bei einem User in der Datenbank ändern kann oder sich einen Array mit seinen Rollen-Ids holen kann.
+Im Beispiel sieht man, wie man Werte bei einem User in der Datenbank ändern kann oder sich einen Array mit seinen Rollen-Ids holen kann.

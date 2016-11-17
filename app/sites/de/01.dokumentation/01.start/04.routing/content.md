@@ -1,6 +1,6 @@
 # Routing
 
-Als Standard-Router bring hubert den [altorouter](https://github.com/dannyvankooten/AltoRouter) mit.
+Als Standard-Router bringt hubert den [altorouter](https://github.com/dannyvankooten/AltoRouter) mit.
 
 ## Eine Route
 
@@ -22,7 +22,7 @@ $config = array(
 Jede Route musss einen eindeutigen Namen haben, Im Beispiel ist dies _hello_.
 eine Route kann aus drei Bestandteilen bestehen:
 - _"route"_ definiert die Uri
-- _"method"_ (optional) Definiert für welche Request-Typen die Route gilt. Es können mehrere Typen per _|_ kombiniert angegeben werden. der Standardwert ist _"GET|POST"_
+- _"method"_ (optional) Definiert für welche Request-Typen die Route gilt. Es können mehrere Typen per _|_ kombiniert angegeben werden. Der Standardwert ist _"GET|POST"_
 - _"target"_ definiert, was passieren soll, wenn die Route auf den Request zutrifft
 
 
@@ -49,7 +49,7 @@ $config = array(
 ```
 
 die Route "hello" trifft nur auf "/hello" zu, nicht auf "/hello/".
-Mann könnte _"route" => "/hello/"_ verwenden, damit die Route zutrifft, wenn ein Slash am ende steht,
+Mann könnte _"route" => "/hello/"_ verwenden, damit die Route zutrifft, wenn ein Slash am Ende steht,
 oder über _[/]?_ am Ende der Route das letzte Slash optional machen: 
 
 ```php
@@ -65,7 +65,7 @@ $config = array(
 );
 ```
 
-Parameter in der Route sehen wie folt aus.
+Parameter in der Route sehen wie folgt aus.
 ```php
             "mvc" => array(
                "route" => "/[:controller]/[:action]", 
@@ -96,5 +96,5 @@ $url_home = hubert()->router->get("home");
 $mvc_url = hubert()->router->get("mvc", ["controller" => "index", "action" => "index"])
 ```
 
-Der Router hat die Function _getBasePath()_, welche einen die Basis-Ulr der Anwendung liefert.
-Des weiteren gibt es die Funktion _get($name, $params = array(), $query = array())_, über welche man Urls zu fefinieren Routen bilden kann.
+Der Router hat die Funktion _getBasePath()_, welche einen die Basis-Url der Anwendung liefert.
+Des weiteren gibt es die Funktion _get($name, $params = array(), $query = array())_, über welche man Urls zu definieren Routen bilden kann.

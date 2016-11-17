@@ -4,7 +4,7 @@ Als Template Engine wird [plates](http://platesphp.com) verwendet.
 
 ## Installation
 
-Zuerst muss die Configuration des Composers erweitert werden
+Zuerst muss die Konfiguration des Composers erweitert werden
 ```json
 {
     "require": {
@@ -15,7 +15,7 @@ Zuerst muss die Configuration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die konfiguration oder legt eine neue Datei "config/template.global.php" an:
+Anschließend erweitert man die Konfiguration oder legt eine neue Datei "config/template.global.php" an:
 ```php
 <?php
 return array(
@@ -45,9 +45,9 @@ $html = hubert()->template->render("index/index", array("name" => "hubert"));
 
 der Befehl rendert das template "templates/index/index.phtml".
 Im Template ist dann die Variable $name verfügbar.
-Über folgenden Befehlt kann global eine Template-Variabe eingefügt werden:
+Über folgenden Befehl kann global eine Template-Variabe eingefügt werden:
 ```php
 hubert()->template->addData(array("language" => 'de'));
 ```
 
-Wie Templates Aufgebaut sind, wie man Layouts verwendet, etc kann unter [platesphp.com](http://platesphp.com) nachgelesen werden.
+Wie Templates aufgebaut sind, wie man Layouts verwendet, etc kann unter [platesphp.com](http://platesphp.com) nachgelesen werden.

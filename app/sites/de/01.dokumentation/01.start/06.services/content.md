@@ -4,8 +4,8 @@ Wir wird im Bereich der Konfiguration gesehen haben, werden Services als Factori
 ```php
 ...
  "factories" => array(
-         "test" => array(\hubert\service\test::class, 'factory'),
-         "add" => array(\hubert\service\add::class, 'factory'),
+         "test" => array(\src\service\test::class, 'factory'),
+         "add" => array(\src\service\add::class, 'factory'),
     ),
 ...
 ```
@@ -17,7 +17,7 @@ die factory ist dabei eine Statische funktion.
 ```php
 <?php
 
-namespace hubert\service;
+namespace src\service;
 
 class test {
 
@@ -33,12 +33,12 @@ class test {
 ```
 
 Ruft man _$wert = hubert()->test->retrunTest()_ auf, erhält man _$wert = "blub"_.
-Beim erstmaligen verwenden des Services wird die Facory ausgeführt. Ein Weiteres Beispiel wäre ein Service, welcher eine direkt Aufrufbare Funktion bereitstellt:
+Beim erstmaligen verwenden des Services wird die Facory ausgeführt. Ein weiteres Beispiel wäre ein Service, welcher eine direkt aufrufbare Funktion bereitstellt:
 
 ```php
 <?php
 
-namespace hubert\service;
+namespace src\service;
 
 class add {
 

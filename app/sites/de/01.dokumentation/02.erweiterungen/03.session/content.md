@@ -32,7 +32,7 @@ return array(
 );
 ```
 
-In der Konfiguration oben wird definiert, wie lang die Session gültig ist (in Sekunden) und ob die Session Validiert werden soll, für mehr Sicherheit.
+In der Konfiguration oben wird definiert, wie lang die Session gültig ist (in Sekunden) und ob die Session validiert werden soll, für mehr Sicherheit.
 
 
 ## Verwendung
@@ -43,6 +43,6 @@ In der Konfiguration oben wird definiert, wie lang die Session gültig ist (in S
  echo hubert()->session('user')->name;
 ```
 
-Im Beispiel siht man, dass man beim Aufruf der Session jeweils einen NameSpace für die Variablen definieren kann.
-Anschließend können werte zugewießen und abgerufen werden.
+Im Beispiel sieht man, dass man beim Aufruf der Session jeweils einen Namespace für die Variablen definieren kann.
+Anschließend können wWrte zugewießen und abgerufen werden.
 

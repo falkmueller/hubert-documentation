@@ -57,7 +57,7 @@ hubert()->core()->run();
 
 ### Serverkonfiguration
 
-Der Server muss so konfiguriert werden dass es alle Anfragen auf unsere index.php leitet.
+Der Server muss so konfiguriert werden, dass er alle Anfragen auf unsere index.php leitet.
 Für Apache-Server definiert man eine _.htaccess_ mit folgenden Inhalt:
 ```rouge
 RewriteEngine on

@@ -49,7 +49,7 @@ Damit auch etwas passiert, muss zuvor über die Funktion _attach($event\_name, $
                         return "eventresult";
                     });
 ```
-Im Beispiel wird das Event die Übergebenen Parameter aus und gibt einen String zurück.
+Im Beispiel gibt das Event die übergebenen Parameter aus und gibt einen String zurück.
 
 Wie Events verwendet werden, kann unter [docs.zendframework.com/zend-eventmanager/](https://docs.zendframework.com/zend-eventmanager/) nachgelesen werden.
 
