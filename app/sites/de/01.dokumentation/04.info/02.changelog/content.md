@@ -1,5 +1,8 @@
 # ChangeLog
 
+### 1.1.2
+- 2016-11-18: preDispatch Event zu bootstrap-Interface hinzugefügt
+
 ### 1.1.1
 - 2016-11-14: behebung verschiedener BugFix nach Umbau aus 1.1.0 
 
