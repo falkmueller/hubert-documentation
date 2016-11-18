@@ -1,9 +1,7 @@
 # Einfaches Beispiel
 
 Hier ein einfaches Beispiel in einer php-Datei.
-
-
-Zuerst muss der autoloader des Composers eingefügt werden:
+Zuerst muss der Autoloader des Composers eingefügt werden:
 ```php
 require 'vendor/autoload.php'
 ```
@@ -28,7 +26,7 @@ Nun initialisert man Hubert mit dieser Konfiguration:
 hubert($config);
 ```
 
-Zum Schluss führt man den "run"-Befehl der Core-Komponente aus:
+Zum Schluss führt man den _run()_ Befehl der Core-Komponente aus:
 ```php
 hubert()->core()->run();
 ```
@@ -55,9 +53,9 @@ hubert($config);
 hubert()->core()->run();
 ```
 
-### Serverkonfiguration
+## Serverkonfiguration
 
-Der Server muss so konfiguriert werden, dass er alle Anfragen auf unsere index.php leitet.
+Der Server muss so konfiguriert werden, dass er alle Anfragen auf unsere _index.php_ leitet.
 Für Apache-Server definiert man eine _.htaccess_ mit folgenden Inhalt:
 ```rouge
 RewriteEngine on

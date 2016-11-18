@@ -22,12 +22,15 @@
 ├── .htaccess
 ```
 
-Der _src_-Ordner beinhaltet den Code der Anwendung, also Controller, Templates, Models, Librarys, ...    
-Der _config_-Ordner beinhaltet die Konfigurations-Datein.    
-Der _data_-Ordner beinhaltet daten, wie Log-Dateien und Cache-Dateien.    
-Der _public_-Ordner beinhaltet Dateien, welche direkt im Browser aufrufbar sind, wie Styles, Bilder und Javascripte. 
+Der _src_ Ordner beinhaltet den Code der Anwendung, also Controller, Templates, Models, Libraries, ...
 
-## der Einstieg
+Der _config_ Ordner beinhaltet die Konfigurations-Datein.
+
+Der _data_ Ordner beinhaltet daten, wie Log-Dateien und Cache-Dateien.
+
+Der _public_ Ordner beinhaltet Dateien, welche direkt im Browser aufrufbar sind, wie Styles, Bilder und Javascripte.
+
+## Einstieg
 
 ### index.php
 ```php
@@ -44,8 +47,7 @@ hubert()->core()->run();
 ```
 
 ###.htaccess
-In der htaccess Datei wird konfiguriert, dass alle Anfragen auf die index.php geleitet werden,
-mit außnahme der Dateien im Ordner "public".
+In der htaccess Datei wird konfiguriert, dass alle Anfragen auf die index.php geleitet werden, mit Ausnahme der Dateien im Ordner "public".
 
 ```rouge
 #disable directory listing
@@ -75,18 +77,16 @@ RewriteRule ^(.*)$ index.php [NC,L,QSA]
 
 ### config/general.global.php
 
-in der Standard-Configuration erlauben wir vorerst das Anzeigen von Fehlermeldungen und
-fügen den Namespace für unseren Code aus dem Order "src" den Autoloader hinzu.
+In der Standardkonfiguration erlauben wir vorerst das Anzeigen von Fehlermeldungen und fügen dem Namespace einen Autoloader hinzu.
 
 ```php
 <?php
 return array( 
     "namespace" => array(
-         "src" => dirname(__dir__)."/src/"
+        "src" => dirname(__dir__)."/src/"
     ),
-
-   "config" => array(
-       "display_errors" => true, 
+    "config" => array(
+        "display_errors" => true,
     ),
 );
 ```

@@ -9,46 +9,43 @@ Für unser Beispiel erstellen wir die Datei _config/routes.global.php_:
     ),
     
     "routes" => array(
-           "home" => array(
-               "route" => "/", 
-               "method" => "GET|POST", 
-               "target" => array("controller" => "index", "action" => "index")
-           ),
-           "api" => array(
-               "route" => "/api", 
-               "method" => "GET|POST", 
-               "target" => array("controller" => "index", "action" => "api")
-           ),
-           "controller" => array(
-                "route" => "/[:controller][/]?", 
-                "method" => "GET|POST", 
-                "target" => array("controller" => "index", "action" => "index")
-            ),
-            "mvc" => array(
-                "route" => "/[:controller]/[:action][/]?", 
-                "method" => "GET|POST", 
-                "target" => array("controller" => "index", "action" => "index")
-            ),
+        "home" => array(
+           "route" => "/",
+           "method" => "GET|POST",
+           "target" => array("controller" => "index", "action" => "index")
+        ),
+        "api" => array(
+           "route" => "/api",
+           "method" => "GET|POST",
+           "target" => array("controller" => "index", "action" => "api")
+        ),
+        "controller" => array(
+           "route" => "/[:controller][/]?",
+           "method" => "GET|POST",
+           "target" => array("controller" => "index", "action" => "index")
+        ),
+        "mvc" => array(
+           "route" => "/[:controller]/[:action][/]?",
+           "method" => "GET|POST",
+           "target" => array("controller" => "index", "action" => "index")
+        ),
     )
+
 );
 ```
 
-In der Konfiguration wird man über _"controller\_namespace"_ den Namespace der Controller an.   
-Bei den Routen wird nun als target-Wert keine Funktion (Callable) mehr angegeben, sondern ein Array mit Controller und Action Name.   
-Sollte ein Controller einen anderen Namespace haben als der konfigurierte _"controller\_namespace"_ kann auch im target-Wert ein Attrebut _"namespace"_ angegeben werden mit dem abweischenden Namespace.   
+In der Konfiguration gibt man über _"controller\_namespace"_ den Namespace der Controller an. Bei den Routen wird nun als target-Wert keine Funktion (Callable) mehr angegeben, sondern ein Array mit Controller und Action Name. Sollte ein Controller einen anderen Namespace als den konfigurierten _"controller\_namespace"_ haben, kann auch im target-Wert ein Attribut _"namespace"_ mit dem abweichenden Namespace angegeben werden.
 
 ## preDispatch
-Manchmal möchte man ein Event ausführen, nachdem die Route bestimmt wurde,
-aber noch befor die eigendliche Route ausgeführt wird.
-Hierfür kann man in der Configuration ein _"preDispatch"_ definieren:
-```php
- "factories" => array(
-        "preDispatch" => array(src\service\preDispatcher::class, 'get')
-    ),
-```
-Dies kann auch als Array definiert werden, wenn es mehrere preDisptcher gibt.
+Manchmal möchte man ein Event ausführen, nachdem die Route bestimmt wurde, aber noch bevor die eigentliche Route ausgeführt wird. Hierfür kann man in der Konfiguration ein _"preDispatch"_ definieren:
 
-in dem Beispiel wäre der preDispatch definiert in der Datei _src/service/preDispatcher.php_:
+```php
+"factories" => array(
+    "preDispatch" => array(src\service\preDispatcher::class, 'get')
+),
+```
+
+Dies kann auch als Array definiert werden, wenn es mehrere preDisptcher gibt. In diesem Beispiel wäre der preDispatch in der Datei _src/service/preDispatcher.php_ definiert:
 ```php
 <?php
 
@@ -62,26 +59,23 @@ class preDispatcher {
     
     public function preDispatch(){
         //do something
-        
     }
+
 }
 ```
 
-im Predispatcher könnte man nun zum Beispiel anhand der Browser-Variablen die Sprache bestimmen, etc.  
-Wenn die Funktion eine Rückgabe vom Type Response hat, wird diese Rückgabe ausgegeben und die eigendliche Route gar nicht ausgeführt.
-Dies kann man zum Beispiel für ein Rechtemanagment nutzen.
+Im preDispatcher könnte man nun zum Beispiel anhand der Browser-Variablen die Sprache bestimmen. Wenn die Funktion eine Rückgabe vom Typ "Response" hat, wird diese Rückgabe ausgegeben und die eigentliche Route nicht ausgeführt. Dies kann man beispielsweise für Rechtemanagment nutzen.
 
 ## postDispatch
-postDisptach-Funktionen werden nach dem Routing ausgeführt und dienen dazu den Response zu manipulieren.
-Hierfür kann man in der Configuration ein _"postDispatch"_ definieren:
-```php
- "factories" => array(
-        "postDispatch" => array(src\service\postDispatcher::class, 'get')
-    ),
-```
-Dies kann auch als Array definiert werden, wenn es mehrere postDisptcher gibt.
+postDisptach Funktionen werden nach dem Routing ausgeführt und dienen dazu, den Response zu manipulieren. Hierfür kann man in der Konfiguration ein _"postDispatch"_ definieren:
 
-in dem Beispiel wäre der postDispatch definiert in der Datei _src/service/postDispatcher.php_:
+```php
+"factories" => array(
+    "postDispatch" => array(src\service\postDispatcher::class, 'get')
+),
+```
+
+Dies kann auch als Array definiert werden, wenn es mehrere postDisptcher gibt. Im folgenden Beispiel wäre der postDispatch in der Datei _src/service/postDispatcher.php_ definiert:
 ```php
 <?php
 
@@ -95,7 +89,7 @@ class postDispatcher {
     
     public function postDispatch($response){
         //do something
-        
     }
+
 }
 ```

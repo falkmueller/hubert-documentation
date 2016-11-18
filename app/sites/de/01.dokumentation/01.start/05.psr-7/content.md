@@ -6,14 +6,13 @@ Wie Ihr in den Routes gesehen habt, bekommen deren Ziel-Funktionen die Variablen
    "route" => "/[:controller]/[:action]",
    "method" => "GET|POST",
    "target" => function($request, $response, $args){
-    echo "Controller: {$args['controller']}, Action: {$args['action']}";
-}
+        echo "Controller: {$args['controller']}, Action: {$args['action']}";
+    }
 ),
 ```
 
-Dies sind Standardisierte Objekte nach den [PSR-7](http://www.php-fig.org/psr/psr-7/) Standard. Hubert verwendet hierbei die PSR-7 implementation von [Zend](https://zendframework.github.io/zend-diactoros/).
+Dies sind standardisierte Objekte nach [PSR-7](http://www.php-fig.org/psr/psr-7/) Standard. Hubert verwendet hierbei die PSR-7 Implementation von [Zend](https://zendframework.github.io/zend-diactoros/). Hier ein kleines Beispiel zur Verwendung.
 
-Hier ein kleines Beispiel zur verwendung.
 ```php
 "test" => array(
     "route" => "/test",
@@ -26,9 +25,5 @@ Hier ein kleines Beispiel zur verwendung.
     }
 ),
 ```
-Ruft man zum Beispiel _"/test?name=hubert"_ auf gibt diese Route _"Get Params: Array("name" => "hubert")"_ zurück.
-
-Hubert erwartet standardmäßig von jeder Route einen PSR-7 Response-Objekt zurück. Dieses wird dann ausgegeben. Aus Kompatiblitätsgründen können Routen aber auch gar nichts zurückgeben oder einen String.
-
-Die Server-Anfrage steht auch global über _hubert()->request_ zur verfügung.
+Ruft man zum Beispiel die Url _/test?name=hubert_ auf, gibt diese Route _"Get Params: Array("name" => "hubert")"_ zurück. Hubert erwartet standardmäßig von jeder Route ein PSR-7 Response-Objekt zurück. Dieses wird dann ausgegeben. Aus Kompatiblitätsgründen können Routen aber auch gar nichts oder aber auch einen String zurückgeben. Die Server-Anfrage steht auch global über _hubert()->request_ zur verfügung.
 

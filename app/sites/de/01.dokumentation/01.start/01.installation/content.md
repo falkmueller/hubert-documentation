@@ -10,4 +10,4 @@ Hubert wird über den Composer installiert:
 }
 ```
 
-Du kannst auch Beispiele direkt unter "Downloads" herunterladen.
+Du kannst auch einige Beispiele direkt unter [Downloads](/de/dokumentation/info/downloads) herunterladen.

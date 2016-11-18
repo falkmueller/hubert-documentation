@@ -1,84 +1,74 @@
 # Konfiguration
 
-Hubtert wird komplett über einen Array Konfiguriert. 
+Hubert wird komplett über einen Array Konfiguriert.
 
 ## Konfigurations-Komponenten
 
-es gibt vier Bereiche, welche Konfiguriert werden können.
+es gibt vier Bereiche, welche konfiguriert werden können.
+- Namespaces
+- Factories
+- Einstellungen
+- Routen
 
 ### Namespaces
 
-In diesem Bereich definiert man Namespaces mit dem dazugehörigen Ordner für den Autoloader.
+In diesem Bereich definiert man Namespaces mit dem dazugehörigen Ordner für den Autoloader:
 
 ```php
-...
- "namespace" => array(
-         "app" => "app/"
-    ),
-...
+"namespace" => array(
+    "app" => "app/"
+),
 ```
 
-In diesem Beispiel wird der Namespace "app" für einen gleichnamigen Ordner definiert.    
-Zum Beispiel könnte in der Datei _app/bootstrap.php_ eine PHP-Klasse liegen mit dem Namen "bootstrap" und dem Namespace "app".    
-Wenn man nun im Code, zum Beispiel in den Routen, die Klasse verwendet wird _$bootstrap = new \app\bootstrap()_, wird diese Datei automatisch per include geladen.
-Dies wird später im Bereich "MVC" dieser Dokumentation verwendet.
+In diesem Beispiel wird der Namespace "app" für einen gleichnamigen Ordner definiert. Zum Beispiel könnte in der Datei _app/bootstrap.php_ eine PHP-Klasse mit dem Namen "bootstrap" und dem Namespace "app" liegen. Wenn nun beispielsweise in den Routen die Klasse  _$bootstrap = new \app\bootstrap()_ verwendet wird, wird diese Datei automatisch per include geladen. Dies wird später im Bereich [MVC](/de/dokumentation/mvc-tutorial/start) dieser Dokumentation verwendet.
 
 ### Factories
 
 Factories sind statische Funktionen, welche einen Service initialisieren.
 ```php
-...
- "factories" => array(
-         "router" => array(\hubert\service\router::class, 'factory'),
-    ),
-...
+"factories" => array(
+    "router" => array(\hubert\service\router::class, 'factory'),
+),
 ```
-Dies ist ein Beispiel aus der Standardkonfiguration von Hubert (und muss desshalb nicht in der eigenen Konfiguration angegeben werden).
-Hier wird in der Klasse "router", welche im Namespace "hubert\service" liegt die statische Funktion "factory" als Initiator für den Router definiert.
-Diese Funktion gibt also den Router als Objekt zurück.
-Der definierte Service ist dann über _hubert()->router_ global verfügbar und wird erst bei seiner erstmaligen verwendung initialisiert.
-Genauso können eigene Services eingebunden werden.
+Dies ist ein Beispiel aus der Standardkonfiguration von Hubert (und muss deshalb nicht in der eigenen Konfiguration angegeben werden). Hier wird in der Klasse "router", welche im Namespace "hubert\service" liegt, die statische Funktion "factory" als Initiator für den Router definiert. Diese Funktion gibt also den Router als Objekt zurück. Der definierte Service ist dann über _hubert()->router_ global verfügbar und wird erst bei seiner erstmaligen Verwendung initialisiert. Genauso können eigene Services eingebunden werden.
 
 ### Einstellungen
 
-Einstellungen sind zum Beispiel Stings oder Bool-Werte, welche in Services zu dessen Konfiguration genutzt werden.
+Einstellungen sind zum Beispiel Strings oder Booleans, welche in Services zu dessen Konfiguration genutzt werden. Die hier im Beispiel definierte Einstellung wäre global über _hubert()->config->logger['path']_ verfügbar.
 
 ```php
-...
- "config" => array(
-         "logger" => array(
-            "path" => "logs/"
-        )
-    ),
-...
+"config" => array(
+    "logger" => array(
+        "path" => "logs/"
+    )
+),
 ```
-Die hier im Beispiel definierte Einstellung wäre global über _hubert()->config->logger['path']_ verfügbar.
 
 ### Routen
 
-In diesem Konfigurationsbereich werden die Routen definiert. Mehr zu Routen findest du im Bereich "Routing" dieser Dokumentation.
+In diesem Konfigurationsbereich werden die Routen definiert. Mehr zu Routen findest du im Bereich [Routing](/de/dokumentation/mvc-tutorial/routing) dieser Dokumentation.
 ```php
-...
- "routes" => array(
-        "home" => array(
-             "route" => "/", 
-             "method" => "GET|POST", 
-             "target" => function(){
-                            echo "Hello World";
-                        }
-         ),
+"routes" => array(
+    "home" => array(
+        "route" => "/",
+        "method" => "GET|POST",
+        "target" => function(){
+            echo "Hello World";
+        }
     ),
-...
+),
 ```
 
+## Laden der Konfiguration
 
-## laden der Konfiguration
-
-Die Konfiguration muss immer beim erstmaligen Aufruf der hubert-Funktion übergeben werden.
+Die Konfiguration muss immer beim erstmaligen Aufruf der _hubert()_ Funktion übergeben werden. Dazu gibt mehrere Möglichkeiten:
+- Array
+- Datei
+- Ordner
 
 ### Konfiguration in einem Array
 
-Im "Hello Wolrd"-Beispiel wurde die Konfiguration als Array definiert.
+Im "Hello World"-Beispiel wurde die Konfiguration als Array definiert – dies ist vor Allem für sehr kleine Anwendungen gedacht.
 ```php
 $config = array(
     "routes" => array(
@@ -93,11 +83,10 @@ $config = array(
 
 hubert($config);
 ```
-Dies ist für sehr kleine Anwendungen gedacht.
+
 
 ### Konfiguration in Datei
-Diesen Array kann man auch in eine seperate Datei auslagern.
-Zum Beispiel eine _config.php_-Datei
+Diesen Array kann man auch in eine seperate Datei auslagern. Zum Beispiel eine _config.php_ Datei.
 ```php
 return array(
     "routes" => array(
@@ -111,7 +100,7 @@ return array(
 );
 ```
 
-Bei der initialisierung kann man nun diese Datei statt einem Array übergeben
+Bei der initialisierung kann man nun diese Datei statt einem Array übergeben:
 ```php
 hubert("config.php");
 ```
@@ -119,22 +108,17 @@ hubert("config.php");
 
 ### Konfiguration über einen Ordner
 
-Dies ist der beste Weg zur Konfiguration von hubert.    
-Dabei wird ein Ordner _/config_ angelegt und die Konfigurationen werden nach Thema sortiert in verschiedenen Dateien abgelegt.
-
-Geladen werden die Konfigurationen in dem man hubtert beim initialisieren den Pfad zu diesem Ordner gibt:
+Dies ist der beste Weg zur Konfiguration von Hubert. Dabei wird ein Ordner _/config_ angelegt und die Konfigurationen werden nach Thema sortiert in verschiedenen Dateien abgelegt. Geladen werden die Konfigurationen indem man Hubert beim initialisieren den Pfad zu diesem Ordner gibt:
 ```php
 $app->loadConfig('config/');
 ```    
 
-Dabei gibt es drei verschiedenen Endungen für die Konfigurations-Datein in diesen Ordner.
-Wenn verschiedene Datein die gleiche konfiguration beinhalten, entscheidet die Endung, welche Konfiguration gilt.
-- _.default.php_: in dieser werden Standard-Konfigurationen eingestellt.
-- _.global.php_: in dieser werden Konfigurationen eingestellt, welche für deine Anwendung gelten, wir Routen zum Beispiel.
-- _.local.php_: in Konfigurationsdatein mit dieser Endung definiert man zum Beispiel die Datenbank-Verbindung, da diese nur lokal gilt und andere Entwickler an der Anwedung zum beispiel andere Einstellungen verwenden.
+Dabei gibt es drei verschiedene Endungen für die Konfigurationsdatein in diesen Ordner. Wenn verschiedene Dateien die gleiche Konfiguration beinhalten, entscheidet die Endung, welche Konfiguration gilt:
+- _.default.php_ in dieser werden Standardkonfigurationen eingestellt
+- _.global.php_ in dieser werden Konfigurationen eingestellt, welche für deine Anwendung gelten, wie beispielsweise Routen
+- _.local.php_ in Konfigurationsdateien mit dieser Endung definiert man zum Beispiel die Datenbankverbindung, da diese nur lokal gilt und andere Entwickler in ihrer Anwedung andere Einstellungen verwenden
 
-Hier ein kleines Bespiel zur verdeutlichung:
-Wir haben eine Datei _config/general.global.php_ in welcher wir eine Route definieren und eine Einstellung, dass Fehler nicht angezeigt werden sollen:
+Hier ein kleines Beispiel zur Verdeutlichung: Wir haben eine Datei _config/general.global.php_ in welcher wir eine Route definieren und eine Einstellung, dass Fehler nicht angezeigt werden sollen:
 ```php
 <?php
 return array(
@@ -152,7 +136,7 @@ return array(
 );
 ```
 
-In deiner lokalen Entwicklungsumgebung legst du noch eine Datei _config/general.local.php_ an, in welcher du definierst, dass du Fehlermeldungen sehen möchtest:
+In Deiner lokalen Entwicklungsumgebung legst Du noch eine Datei _config/general.local.php_ an, in welcher Du definierst, dass Du Fehlermeldungen sehen möchtest:
 ```php
 <?php
 return array(
@@ -162,21 +146,13 @@ return array(
 );
 ```
 
-Die Einstellung "display_errors" ist nun also in beiden Dateien enthalten. 
-Beim initialisieren von hubert werden nun die Arrays zusammengeführt.
-Da die Einstellung "display_errors" in der Datei, welche auf ".local.php" endet auf "true" steht, gilt dieser Wert.
+Die Einstellung _display\_errors_ ist nun also in beiden Dateien enthalten. Beim initialisieren von Hubert werden nun die Arrays zusammengeführt. Da die Einstellung _display\_errors_ in der Datei, welche auf _.local.php_ endet auf _true_ steht, gilt dieser Wert, denn die lokale Konfiguration hat vor allen anderen Einstellungen Vorrang.
 
 ## Cache
 
-Bei der Konfiguration über Order können es schnell sehr viele Konfigurations-Dateien werden.    
-routes.global.php, database.global.php, database.local.php, template.global.php, ...    
-Hubtert kann diese in einer cache-Datei zusammenführen und lädt dann bei jedem weiteren Request die Konfiguration aus diesem Cache.
-Damit die Konfiguration gecached werden kann ist es wichtig, dass diese serialisierbar ist.
-Dies bedeutet, dass zum Beispiel routen nicht mehr als anonyme funktion definiert werden, sondern über Referenzen.
-Im MVC-Tutorial sieht man eine solche Konfiguration.
-Wenn du dir unsicher bist, dann cache die Konfiguration lieber nicht.
-Zum cachen übergibt man als zweiten Parameter in der initialisierung den Pfad zu einer Cache-Datei.
-Für diese Datei müssen schreibrechte gesetzt sein.
+Bei der Konfiguration über Ordner können schnell sehr viele Konfigurations-Dateien entstehen. routes.global.php, database.global.php, database.local.php, template.global.php sind nur einige Beispiele. Hubert kann diese in einer Cache-Datei zusammenführen und lädt dann bei jedem weiteren Request die Konfiguration aus diesem Cache. Damit die Konfiguration gecached werden kann, ist es wichtig, dass diese serialisierbar ist. Dies bedeutet, dass zum Beispiel Routen nicht mehr als anonyme Funktion definiert werden, sondern über Referenzen.
+
+Im MVC-Tutorial sieht man eine solche Konfiguration. Wenn du dir unsicher bist, dann cache die Konfiguration lieber nicht. Zum cachen übergibt man als zweiten Parameter in der Initialisierung den Pfad zu einer Cache-Datei. Für diese Datei müssen schreibrechte gesetzt sein.
 
 ```php
 $app->loadConfig('config/', 'cache/config.php');

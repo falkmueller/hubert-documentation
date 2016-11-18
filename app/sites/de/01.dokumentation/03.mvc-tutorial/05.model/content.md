@@ -1,6 +1,6 @@
 # Model
 
-Befor man mit den Models beginnt muss man die DB-Extension per composer laden:
+Bevor man mit den Models beginnt, muss man die DB-Extension per Composer laden:
 ```json
 {
     "require": {
@@ -26,11 +26,13 @@ return array(
     )
 );
 ```
-Infos zur Konfiguration und findest du unter [docs.zendframework.com/zend-db](https://docs.zendframework.com/zend-db/)
 
-## model definieren
+Weitere Infos zur Konfiguration findest du unter [docs.zendframework.com/zend-db](https://docs.zendframework.com/zend-db/)
 
-Für unser beispiel legen wir ein Model "user" an in der Datei _src/model/user.php_
+## Model definieren
+
+Für unser Beispiel legen wir in der Datei _src/model/user.php_ ein Model "user" an:
+
 ```php
 <?php
 
@@ -40,7 +42,7 @@ class user extends \hubert\extension\db\model {
     
     protected static $table = "user";
      
-     public static function fields(){
+    public static function fields(){
         return array(
             "id" => array('type' => 'integer', 'primary' => true, 'autoincrement' => true),
             "login_name" => array('type' => 'string', "default" => ""),
@@ -53,40 +55,32 @@ class user extends \hubert\extension\db\model {
         foreach ($rows as $row){
             $update[$row] = $this->$row;
         }
-        
+
         return static::tableGateway()->update($update, ["id" => $this->id]);
     }
     
     public function getRoleIds(){
         $role_ids = array(1);
         $query = "SELECT role_id FROM user_role_mapping WHERE user_id = :user_id";
-        
         $result = hubert()->dbAdapter->query($query, array("user_id" => $this->id));
-        
         foreach ($result as $res){
             $role_ids[] = $res["role_id"];
         }
-        
         return $role_ids;
     }
     
 }
 ```
 
-Modles müssen von _\hubert\extension\db\model_ erben.
-Des weiteren muss in einer statischen Variable _$table_ die Datenbanktabelle zu dem Model definiert werden
-und in einer statischen funktion _fields()_ die Felder dieser Tabelle.
-Die dabei im Array angegebenen Typen sind nur Informativ und werdne derzeit nicht genutzt.
+Models müssen von _\hubert\extension\db\model_ erben. Des Weiteren muss in einer statischen Variable _$table_ die Datenbanktabelle zum Model und in einer statischen Funktion _fields()_ die Felder dieser Tabelle definiert werden. Die dabei im Array angegebenen Typen sind nur Informativ und werden derzeit nicht genutzt.
 
-## Arbeiten mit models
+## Arbeiten mit Models
 
 ```php
-    $user = src\model\user::selectOne(["id" => 1]);
-    $user->name = "hubert";
-    $user->update(["name]);
-
-    print_r($user->getRoleIds());
+$user = src\model\user::selectOne(["id" => 1]);
+$user->name = "hubert";
+$user->update(["name]);
+print_r($user->getRoleIds());
 ```
 
-Dadurch, dass models von _\hubert\extension\db\model_ erben, stehen die statischen funtionen _selectOne($where)_ und _selectAll($where)_ zur verfügung.
-Im Beispiel haben wir noch ein Update-Funktion definiert um bestimmte Attrebute in der Datenbank updaten zu können.
+Dadurch, dass Models von _\hubert\extension\db\model_ erben, stehen die statischen Funktionen _selectOne($where)_ und _selectAll($where)_ zur Verfügung. Im Beispiel wurde noch ein Update-Funktion definiert, um bestimmte Attribute in der Datenbank updaten zu können.

@@ -1,10 +1,10 @@
 # Template
 
-Als Template Engine wird [plates](http://platesphp.com) verwendet.
+Als Template Engine wird [Plates](http://platesphp.com) verwendet.
 
 ## Installation
 
-Zuerst muss die Konfiguration des Composers erweitert werden
+Zuerst muss die Konfiguration von Composer erweitert werden:
 ```json
 {
     "require": {
@@ -15,26 +15,24 @@ Zuerst muss die Konfiguration des Composers erweitert werden
 
 ## Konfiguration
 
-Anschließend erweitert man die Konfiguration oder legt eine neue Datei "config/template.global.php" an:
+Anschließend erweitert man die Konfiguration von Hubert oder legt eine neue Datei _config/template.global.php_ an. In der nachfolgenden Beispielkonfiguration ist unter Anderem festgelegt, dass Templates im Order _/templates_ liegen und auf _.phtml_ enden.
 ```php
 <?php
 return array(
     "factories" => array(
-         "template" => array(hubert\extension\template\factory::class, 'get')
-        ), 
+        "template" => array(hubert\extension\template\factory::class, 'get')
+    ),
     "config" => array(
         "template" => array(
-           "path" => dirname(__dir__).'/templates',
-           "fileExtension" => "phtml",
-           "extensions" => array(
-               hubert\extension\template\urlExtension::class
-           )
-       )
+            "path" => dirname(__dir__).'/templates',
+            "fileExtension" => "phtml",
+            "extensions" => array(
+                hubert\extension\template\urlExtension::class
+            )
+        )
     )
 );
 ```
-
-In der Konfiguration oben ist unter anderen festgelegt, dass Tempaltes im Order _/templates_ liegen und auf _.phtml_ enden.
 
 
 ## Verwendung
@@ -43,11 +41,10 @@ In der Konfiguration oben ist unter anderen festgelegt, dass Tempaltes im Order 
 $html = hubert()->template->render("index/index", array("name" => "hubert"));
 ```
 
-der Befehl rendert das template "templates/index/index.phtml".
-Im Template ist dann die Variable $name verfügbar.
-Über folgenden Befehl kann global eine Template-Variabe eingefügt werden:
+Dieser Befehl rendert beispielsweise das Template "templates/index/index.phtml". Im Template ist dann die Variable _$name_ verfügbar. Über folgenden Befehl kann global eine Template-Variable eingefügt werden:
+
 ```php
 hubert()->template->addData(array("language" => 'de'));
 ```
 
-Wie Templates aufgebaut sind, wie man Layouts verwendet, etc kann unter [platesphp.com](http://platesphp.com) nachgelesen werden.
+Wie Templates aufgebaut sind, wie man Layouts verwendet, etc kann auch noch genauer unter [platesphp.com](http://platesphp.com) nachgelesen werden.

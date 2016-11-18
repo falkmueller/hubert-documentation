@@ -108,9 +108,15 @@ section.content {
 		margin-top: 1rem;
 	}
 
+	pre + h3,
+	p + h3{
+		margin-top: 2rem;
+	}
+
 	* em{
-		@extend .panel;
+		border-radius: 0.25rem;
 		padding: 0.25rem 0.5rem 0.2rem;
+		background: $lightgrey * 0.95;
 		margin: 0 0.25rem;
 		font-size: 0.8rem;
 		font-family: "Courier New", Courier, monospace;

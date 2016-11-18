@@ -1,9 +1,7 @@
 # Controller
 
-Controller legen wir in den Order _src/controller_ ab.
-Als Konvention müssem Controller-Namen auf "Controller.php" enden und darin enthaltene Action-Function auf "Action" enden.
+Controller legen wir im Ordner _src/controller_ ab. Als Konvention müssem Controller-Namen auf _Controller.php_ enden und darin enthaltene Action-Funktionen müssen auf _Action_ enden. Für unser Beispiel legen wir die Datei _src/controller/indexController.php_ an:
 
-Für unser Beispiel legen wir die Datei "src/controller/indexController" an:
 ```php
 <?php
 
@@ -24,16 +22,12 @@ class indexController extends \hubert\generic\controller {
         $home_route = hubert()->router->get("home");
         return $this->responseRedirect($home_route);
     }
+
 }
 ```
 
-Controller erben Eigenschaften von _\hubert\generic\controller_.    
-(oder Sie implementieren selbstständig das Interface _hubert\interfaces\controller_)
-Über $this->getResonse() steht as Response-Objekt und über $this->getRequest steht das Request-Objekt zur verfügung.    
+Controller erben Eigenschaften von _\hubert\generic\controller_ oder Sie implementieren selbstständig das Interface _hubert\interfaces\controller_. Über _$this->getResonse()_ steht as Response-Objekt und über _$this->getRequest_ steht das Request-Objekt zur Verfügung. Controller müssen ein Respone Objekt zurückgeben. Um dieses mit Daten zu befüllen stehen drei Funktionen zur Verfügung:
 
-Controller müssen ein das Respone Objekt zurückgeben.
-Um dieses mit Daten zu befüllen stehen drei Funtionen zur verfügung.
-
-- _$this->responseJson($data, $status = null, $encodingOptions = 0)_: Über diese Funktion wird ein Objejekt, wie ein Array in den Response gesetzt und der Response als Json encodet.
-- _$this->responseRedirect($url, $status = null)_: In den Response wird eine Url gesetzt und es diese wird als Redirekt an den Empfänger übergeben
-- _$this->responseTemplate($template, $data = array())_: Es wird ein Template gerendert.
+- _$this->responseJson($data, $status = null, $encodingOptions = 0)_ Über diese Funktion wird ein Objekt wie zB. ein Array in den Response gesetzt und der Response als Json encodet
+- _$this->responseRedirect($url, $status = null)_ In den Response wird eine Url gesetzt und diese wird als Redirect an den Empfänger übergeben
+- _$this->responseTemplate($template, $data = array())_ Es wird ein Template gerendert

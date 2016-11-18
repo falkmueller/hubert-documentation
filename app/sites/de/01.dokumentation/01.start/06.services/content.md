@@ -1,19 +1,14 @@
 # Services
 
-Wir wird im Bereich der Konfiguration gesehen haben, werden Services als Factories definiert:
+Wie wir im Bereich der Konfiguration gesehen haben, werden Services als Factories definiert:
 ```php
-...
- "factories" => array(
-         "test" => array(\src\service\test::class, 'factory'),
-         "add" => array(\src\service\add::class, 'factory'),
-    ),
-...
+"factories" => array(
+    "test" => array(\src\service\test::class, 'factory'),
+    "add" => array(\src\service\add::class, 'factory'),
+),
 ```
 
-Services stehen anschließend über den definierten namen zur verfügung.
-Im Bespiel über _hubert()->test_
-
-die factory ist dabei eine Statische funktion.
+Services stehen anschließend über den definierten Namen zur Verfügung. Im Bespiel über _hubert()->test_. Die Factory ist dabei eine statische Funktion.
 ```php
 <?php
 
@@ -33,7 +28,7 @@ class test {
 ```
 
 Ruft man _$wert = hubert()->test->retrunTest()_ auf, erhält man _$wert = "blub"_.
-Beim erstmaligen verwenden des Services wird die Facory ausgeführt. Ein weiteres Beispiel wäre ein Service, welcher eine direkt aufrufbare Funktion bereitstellt:
+Bei der erstmaligen Verwendung des Services wird die Factory ausgeführt. Ein weiteres Beispiel wäre ein Service, welcher eine direkt aufrufbare Funktion bereitstellt:
 
 ```php
 <?php
@@ -53,4 +48,4 @@ class add {
 }
 ```
 
-In dem Falle kann man über _$c = hubert()->add(2,3)_ zwei Zahlen addieren. Die Services sind in der Konfiguration überschreibbar. Wird in einer Konfigurationsdatei, welche auf _.global.php_ endet ein Service definiert, welcher auch in einer Datei, welche auf ".local.php" endet definiert ist, so wird nur der Service, welcher in der local-Datei definiert ist inizialisiert.
+In diesem Fall kann man über _$c = hubert()->add(2,3)_ zwei Zahlen addieren. Die Services sind in der Konfiguration überschreibbar. Wird in einer Konfigurationsdatei, welche auf _.global.php_ endet ein Service definiert, welcher auch in einer Datei, welche auf _.local.php_ endet definiert ist, so wird nur der Service, welcher in der local-Datei definiert ist initialisiert.
