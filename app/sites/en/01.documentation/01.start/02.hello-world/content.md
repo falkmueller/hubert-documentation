@@ -1,11 +1,11 @@
 # Simple example
 
-at first, require the composer autoloader
+This is an easy example in a php file. At first you have to insert the composer autoloader.
 ```php
 require 'vendor/autoload.php'
 ```
 
-then define the route and what been happen
+Now you define the configuration. In this example the configuration contains only one route for the home page that returns "Hello World":
 ```php
 $config = array(
     "routes" => array(
@@ -19,13 +19,18 @@ $config = array(
 );
 ```
 
-at the end, load the configuraion in the app, execute the app by the "run"-command and emit the response
+Now Hubert can be initialised using this configuration:
+```php
+hubert($config);
+```
+
+At last you fire off the core components _run()_ command:
 ```php
 hubert()->core()->run();
 ```
 
-the code of the complede example
 
+This is the full _index.php_:
 ```php
 <?php
 
@@ -42,12 +47,13 @@ $config = array(
     )
 );
 
+hubert($config);
 hubert()->core()->run();
 ```
-### Serverconfiguration
 
-your server must be configurate to route all requests to this index.php file.
-For Apache, you create a .htaccess
+## Serverkonfiguration
+
+The server must be configured to redirect all request to _index.php_. Using Apache you create a new _.htaccess_ file with the following content:
 ```rouge
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d

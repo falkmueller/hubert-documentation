@@ -28,14 +28,14 @@ return array(
 );
 ```
 
-Im Controller haben wir gesehen, dass die Home-Route die indexAction des IndexControllers aufruft. Diese hat als Rückgabe _$this->responseTemplate("index/index", ["name" => "Hubert"])_. Es wird also das Template _src/templates/index/index.phtml_ geladen und diesem die Variable $name übergeben.
+Im Controller haben wir gesehen, dass die Home-Route die indexAction des IndexControllers aufruft. Diese hat als Rückgabe _$this->responseTemplate("index/index", ["name" => "Hubert"])_. Es wird also das Template _src/templates/index/index.phtml_ geladen und diesem die Variable _$name_ übergeben.
 
 ```html
 <?php $this->layout('layout') ?>
 Name: <?= $name ?>
 ```
 
-Nun geben wir die Variable aus und laden das Layout namens "layout". Dieses liegt ebenfalls im Template-Pfad unter _src/temnplates/layout.phtml_:
+Nun geben wir die Variable aus und laden das Layout namens "layout". Dieses liegt ebenfalls im Template-Pfad unter _src/templates/layout.phtml_:
 
 ```html
 <html>

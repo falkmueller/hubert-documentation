@@ -67,7 +67,7 @@ class preDispatcher {
 Im preDispatcher könnte man nun zum Beispiel anhand der Browser-Variablen die Sprache bestimmen. Wenn die Funktion eine Rückgabe vom Typ "Response" hat, wird diese Rückgabe ausgegeben und die eigentliche Route nicht ausgeführt. Dies kann man beispielsweise für Rechtemanagment nutzen.
 
 ## postDispatch
-postDisptach Funktionen werden nach dem Routing ausgeführt und dienen dazu, den Response zu manipulieren. Hierfür kann man in der Konfiguration ein _"postDispatch"_ definieren:
+PostDisptach Funktionen werden nach dem Routing ausgeführt und dienen dazu, den Response zu manipulieren. Hierfür kann man in der Konfiguration ein _"postDispatch"_ definieren:
 
 ```php
 "factories" => array(

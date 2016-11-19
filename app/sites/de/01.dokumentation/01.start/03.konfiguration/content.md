@@ -4,7 +4,7 @@ Hubert wird komplett über einen Array Konfiguriert.
 
 ## Konfigurations-Komponenten
 
-es gibt vier Bereiche, welche konfiguriert werden können.
+es gibt vier Bereiche, welche konfiguriert werden können:
 - Namespaces
 - Factories
 - Einstellungen
@@ -13,14 +13,13 @@ es gibt vier Bereiche, welche konfiguriert werden können.
 ### Namespaces
 
 In diesem Bereich definiert man Namespaces mit dem dazugehörigen Ordner für den Autoloader:
-
 ```php
 "namespace" => array(
     "app" => "app/"
 ),
 ```
 
-In diesem Beispiel wird der Namespace "app" für einen gleichnamigen Ordner definiert. Zum Beispiel könnte in der Datei _app/bootstrap.php_ eine PHP-Klasse mit dem Namen "bootstrap" und dem Namespace "app" liegen. Wenn nun beispielsweise in den Routen die Klasse  _$bootstrap = new \app\bootstrap()_ verwendet wird, wird diese Datei automatisch per include geladen. Dies wird später im Bereich [MVC](/de/dokumentation/mvc-tutorial/start) dieser Dokumentation verwendet.
+In diesem Beispiel wird der Namespace "app" für einen gleichnamigen Ordner definiert. Zum Beispiel könnte in der Datei _app/bootstrap.php_ eine PHP-Klasse mit dem Namen "bootstrap" und dem Namespace "app" liegen. Wenn nun beispielsweise in den Routen die Klasse _$bootstrap = new \app\bootstrap()_ verwendet wird, wird diese Datei automatisch per include geladen. Dies wird später im Bereich [MVC](/de/dokumentation/mvc-tutorial/start) dieser Dokumentation verwendet.
 
 ### Factories
 
@@ -35,7 +34,6 @@ Dies ist ein Beispiel aus der Standardkonfiguration von Hubert (und muss deshalb
 ### Einstellungen
 
 Einstellungen sind zum Beispiel Strings oder Booleans, welche in Services zu dessen Konfiguration genutzt werden. Die hier im Beispiel definierte Einstellung wäre global über _hubert()->config->logger['path']_ verfügbar.
-
 ```php
 "config" => array(
     "logger" => array(

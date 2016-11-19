@@ -1,6 +1,6 @@
 # Installation
 
-Hubert is available via Composer:
+Hubert is installed via Composer:
 
 ```json
 {
@@ -9,3 +9,5 @@ Hubert is available via Composer:
     }
 }
 ```
+
+You can also download some examples at the [Downloads](/en/documentation/info/downloads) section.

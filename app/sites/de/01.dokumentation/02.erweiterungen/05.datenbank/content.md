@@ -44,7 +44,7 @@ Im oberen Beispiel werden Daten aus einer Tabelle abgefragt und die erste Zeile 
 
 ## Models
 
-Die Hubert Erweiterung beinhaltet unter Anderem noch ein Struktur für Models. Zum Beispiel kann man eine Datei _model/user.php_ anlegen:
+Die Hubert Erweiterung beinhaltet unter Anderem noch eins Struktur für Models. Zum Beispiel kann man eine Datei _model/user.php_ anlegen:
 ```php
 <?php
 
@@ -89,7 +89,7 @@ print_r(json_encode(\model\user::selectOne(["id" => 1])));
 print_r(json_encode(\model\user::selectAll()));
 ```
 
-Im nächsten Beispiel sieht man, wie man Werte bei eines Users in der Datenbank ändern kann oder sich einen Array mit seinen Rollen-Ids holen kann.
+Im nächsten Beispiel sieht man, wie man Werte bei eines Users in der Datenbank ändern kann oder sich einen Array mit seinen Rollen-Ids holen kann:
 ```php
 $user = \model\user::selectOne(["id" => 1]);
 $user->name = "hubert";

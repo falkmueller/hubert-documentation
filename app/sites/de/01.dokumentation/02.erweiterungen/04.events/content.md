@@ -15,7 +15,7 @@ Zuerst muss die Configuration von Composer erweitert werden:
 
 ## Konfiguration
 
-Anschließend erweitert man die Konfiguration von Hubert oder legt eine neue Datei _config/event.global.php_ an. Hier muss lediglich die Factory angegeben werden.
+Anschließend erweitert man die Konfiguration von Hubert oder legt eine neue Datei _config/event.global.php_ an. Hier muss lediglich die Factory angegeben werden:
 ```php
 <?php
 return array(

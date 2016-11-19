@@ -4,7 +4,7 @@
 - 2016-11-18 preDispatch Event zu Bootstrap Interface hinzugefügt
 
 ### 1.1.1
-- 2016-11-14 Behebung verschiedener BugS nach Umbau aus 1.1.0
+- 2016-11-14 Behebung verschiedener Bugs nach Umbau aus 1.1.0
 
 ### 1.1.0
 - 2016-11-14 hubert() ist nun selbst ein Container-Interop
@@ -22,6 +22,5 @@
 
 ### 1.0.1
 - 2016-11-03 Abhängigkeiten reduziert, Template, Logger, DB, Events und Session in eigene Repos ausgelagert
-- 2016-11-02 Bootstrap Funktion eingebaut
+- 2016-11-02 Bootstrap Feature eingebaut
 - 2016-11-01 Beispiele hinzugefügt
-- 2016-10-31 Anlage

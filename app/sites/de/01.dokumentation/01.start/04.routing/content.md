@@ -3,8 +3,6 @@
 Als Standardrouter bringt hubert den [AltoRouter](https://github.com/dannyvankooten/AltoRouter) mit.
 
 ## Eine Route
-
-
 ```php
 $config = array(
     "routes" => array(
@@ -23,7 +21,6 @@ Jede Route musss einen eindeutigen Namen haben, Im Beispiel ist dies _hello_. Ei
 - _"route"_ definiert die Uri
 - _"method"_ (optional) definiert, für welche Request-Typen die Route gilt. Es können mehrere Typen per _|_ kombiniert angegeben werden. Der Standardwert ist _"GET|POST"_
 - _"target"_ definiert, was passieren soll, wenn die Route auf den Request zutrifft
-
 
 ## Route-Matching
 
@@ -48,7 +45,6 @@ $config = array(
 ```
 
 Die Route "hello" trifft nur auf _"/hello"_ zu, nicht auf _"/hello/"_. Mann könnte _"route" => "/hello/"_ verwenden, damit die Route zutrifft, wenn ein Slash am Ende steht, oder über _[/]?_ am Ende der Route den letzten Slash optionalisieren:
-
 ```php
 $config = array(
     "routes" => array(
@@ -62,7 +58,7 @@ $config = array(
 );
 ```
 
-Parameter in der Route sehen wie folgt aus
+Parameter in der Route sehen wie folgt aus:
 ```php
 "mvc" => array(
     "route" => "/[:controller]/[:action]",

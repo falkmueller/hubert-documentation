@@ -15,7 +15,7 @@ Zuerst muss die Konfiguration von Composer erweitert werden:
 
 ## Konfiguration
 
-Anschließend erweitert man die Konfiguration von Hubert oder legt eine neue Datei _config/template.global.php_ an. In der nachfolgenden Beispielkonfiguration ist unter Anderem festgelegt, dass Templates im Order _/templates_ liegen und auf _.phtml_ enden.
+Anschließend erweitert man die Konfiguration von Hubert oder legt eine neue Datei _config/template.global.php_ an. In der nachfolgenden Beispielkonfiguration ist unter Anderem festgelegt, dass Templates im Ordner _/templates_ liegen und auf _.phtml_ enden.
 ```php
 <?php
 return array(

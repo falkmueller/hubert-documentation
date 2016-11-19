@@ -1,13 +1,11 @@
 # Einfaches Beispiel
 
-Hier ein einfaches Beispiel in einer php-Datei.
-Zuerst muss der Autoloader des Composers eingefügt werden:
+Hier ein einfaches Beispiel in einer php-Datei. Zuerst muss der Autoloader des Composers eingefügt werden:
 ```php
 require 'vendor/autoload.php'
 ```
 
-Nun definiert man die Konfiguration.
-Im einfachen Beispiel beinhaltet diese nur eine Route für die Startseite, welche "Hello World" ausgibt:
+Nun definiert man die Konfiguration. Im einfachen Beispiel beinhaltet diese nur eine Route für die Startseite, welche "Hello World" ausgibt:
 ```php
 $config = array(
     "routes" => array(
@@ -55,8 +53,7 @@ hubert()->core()->run();
 
 ## Serverkonfiguration
 
-Der Server muss so konfiguriert werden, dass er alle Anfragen auf unsere _index.php_ leitet.
-Für Apache-Server definiert man eine _.htaccess_ mit folgenden Inhalt:
+Der Server muss so konfiguriert werden, dass er alle Anfragen auf unsere _index.php_ leitet. Für Apache-Server definiert man eine _.htaccess_ mit folgenden Inhalt:
 ```rouge
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d

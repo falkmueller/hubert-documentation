@@ -26,7 +26,7 @@ class indexController extends \hubert\generic\controller {
 }
 ```
 
-Controller erben Eigenschaften von _\hubert\generic\controller_ oder Sie implementieren selbstständig das Interface _hubert\interfaces\controller_. Über _$this->getResonse()_ steht as Response-Objekt und über _$this->getRequest_ steht das Request-Objekt zur Verfügung. Controller müssen ein Respone Objekt zurückgeben. Um dieses mit Daten zu befüllen stehen drei Funktionen zur Verfügung:
+Controller erben Eigenschaften von _\hubert\generic\controller_ oder du implementierst selbstständig das Interface _hubert\interfaces\controller_. Über _$this->getResponse()_ steht das Response-Objekt und über _$this->getRequest()_ steht das Request-Objekt zur Verfügung. Controller müssen ein Response Objekt zurückgeben. Um dieses mit Daten zu befüllen stehen drei Funktionen zur Verfügung:
 
 - _$this->responseJson($data, $status = null, $encodingOptions = 0)_ Über diese Funktion wird ein Objekt wie zB. ein Array in den Response gesetzt und der Response als Json encodet
 - _$this->responseRedirect($url, $status = null)_ In den Response wird eine Url gesetzt und diese wird als Redirect an den Empfänger übergeben

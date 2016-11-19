@@ -47,7 +47,7 @@ hubert()->core()->run();
 ```
 
 ###.htaccess
-In der htaccess Datei wird konfiguriert, dass alle Anfragen auf die index.php geleitet werden, mit Ausnahme der Dateien im Ordner "public".
+In der _.htaccess_ Datei wird konfiguriert, dass alle Anfragen auf die _index.php_ geleitet werden, mit Ausnahme der Dateien im Ordner _public_.
 
 ```rouge
 #disable directory listing
@@ -77,7 +77,7 @@ RewriteRule ^(.*)$ index.php [NC,L,QSA]
 
 ### config/general.global.php
 
-In der Standardkonfiguration erlauben wir vorerst das Anzeigen von Fehlermeldungen und fügen dem Namespace einen Autoloader hinzu.
+In der Standardkonfiguration erlauben wir vorerst das Anzeigen von Fehlermeldungen und fügen dem Namespace einen Autoloader hinzu:
 
 ```php
 <?php

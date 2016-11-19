@@ -27,8 +27,7 @@ class test {
 }
 ```
 
-Ruft man _$wert = hubert()->test->retrunTest()_ auf, erhält man _$wert = "blub"_.
-Bei der erstmaligen Verwendung des Services wird die Factory ausgeführt. Ein weiteres Beispiel wäre ein Service, welcher eine direkt aufrufbare Funktion bereitstellt:
+Ruft man _$wert = hubert()->test->retrunTest()_ auf, erhält man _$wert = "blub"_. Bei der erstmaligen Verwendung des Services wird die Factory ausgeführt. Ein weiteres Beispiel wäre ein Service, welcher eine direkt aufrufbare Funktion bereitstellt:
 
 ```php
 <?php

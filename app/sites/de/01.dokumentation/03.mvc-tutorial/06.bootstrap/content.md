@@ -1,6 +1,6 @@
 # Bootstrap
 
-Bootstrap-Klassen können genutzt werden, um Code nach oder vor Ausführung der Anwendund zu initialisieren. Dies ist nützlich, wenn man zum Beispiel den Usernamen aus der Session global als Variable in die Templates geben möchte. Um eine Bootstrap-Klasse zu nutzen muss diese in der Konfiguration angegeben werden. Im Beispiel fügen wir dies in die Datei _config/general.global.php_ ein:
+Bootstrap-Klassen können genutzt werden, um Code nach oder vor Ausführung der Anwendung zu initialisieren. Dies ist nützlich, wenn man zum Beispiel den Usernamen aus der Session global als Variable in die Templates geben möchte. Um eine Bootstrap-Klasse zu nutzen muss diese in der Konfiguration angegeben werden. Im Beispiel fügen wir dies in die Datei _config/general.global.php_ ein:
 ```php
 <?php
 return array( 
@@ -34,4 +34,4 @@ class bootstrap extends \hubert\generic\bootstrap {
 
 ```
 
-Bootstrap-Klassen erben Eigenschaften von _\hubert\generic\bootstrap_ oder müssen selbstständig das Interface _hubert\interfaces\bootstrap_ implementieren. Die init-Funktion einer Bootstrap Klasse wird vor dem Routing ausgeführt. Die preDispatch-Funktion wird nach der Ermittlung der aktuellen Route ausgeführt, aber noch vor dem eigendtlichen dispatch-Event. Wenn der preDispatch ein Objekt vom Type Response liefert, wird das Routing sofort beendet. Die postDispatch-Funktion wird nach dem Ausführen der Route aufgerufen und dient dazu, den Response zu manipulieren.
+Bootstrap-Klassen erben Eigenschaften von _\hubert\generic\bootstrap_. Anderenfalls muss selbstständig das Interface _hubert\interfaces\bootstrap_ implementiert werden. Die init-Funktion einer Bootstrap Klasse wird vor dem Routing ausgeführt. Die preDispatch-Funktion wird nach der Ermittlung der aktuellen Route ausgeführt, aber noch vor dem eigentlichen dispatch-Event. Wenn der preDispatch ein Objekt vom Typ "Response" liefert, wird das Routing sofort beendet. Die postDispatch-Funktion wird nach dem Ausführen der Route aufgerufen und dient dazu, den Response zu manipulieren.
