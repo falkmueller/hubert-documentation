@@ -1,4 +1,4 @@
-# Datenbank
+# Database
 
 Hubert uses [zend-db](https://docs.zendframework.com/zend-db/) as database adapter.
 

@@ -1,8 +1,8 @@
-# Konfiguration
+# Configuration
 
 Hubert is configured by a single array.
 
-## Konfigurations-Komponenten
+## Configuation components
 
 there are four types that can be configured:
 - Namespaces
