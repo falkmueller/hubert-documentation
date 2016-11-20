@@ -51,7 +51,7 @@ hubert($config);
 hubert()->core()->run();
 ```
 
-## Serverkonfiguration
+## Server configuration
 
 The server must be configured to redirect all request to _index.php_. Using Apache you create a new _.htaccess_ file with the following content:
 ```rouge

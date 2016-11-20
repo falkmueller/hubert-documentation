@@ -34,7 +34,7 @@ return array(
 );
 ```
 
-## Verwendung
+## Usage
 
 ```php
 $result = hubert()->dbAdapter->query('SELECT * FROM `db_test` WHERE `id` = :id', ['id' => 1]);
