@@ -83,7 +83,7 @@ class user extends \hubert\extension\db\model {
 }
 ```
 
-All models contain the static functions _selectOne($where)_ and _selectAll($where = array(), $limit = 0, $offset = 0)_ by default:
+All models contain the static functions _selectOne($where)_, _count($where = array())_ and _selectAll($where = array(), $limit = 0, $offset = 0)_ by default:
 ```php
 print_r(json_encode(\model\user::selectOne(["id" => 1])));
 print_r(json_encode(\model\user::selectAll()));
