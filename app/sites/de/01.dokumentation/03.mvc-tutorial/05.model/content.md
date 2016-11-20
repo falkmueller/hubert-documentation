@@ -50,15 +50,6 @@ class user extends \hubert\extension\db\model {
         );
     }
     
-    public function update($rows = array()){
-        $update = array();
-        foreach ($rows as $row){
-            $update[$row] = $this->$row;
-        }
-
-        return static::tableGateway()->update($update, ["id" => $this->id]);
-    }
-    
     public function getRoleIds(){
         $role_ids = array(1);
         $query = "SELECT role_id FROM user_role_mapping WHERE user_id = :user_id";
@@ -72,7 +63,13 @@ class user extends \hubert\extension\db\model {
 }
 ```
 
-Models müssen von _\hubert\extension\db\model_ erben. Des Weiteren muss in einer statischen Variable _$table_ die Datenbanktabelle zum Model und in einer statischen Funktion _fields()_ die Felder dieser Tabelle definiert werden. Die dabei im Array angegebenen Typen sind nur Informativ und werden derzeit nicht genutzt.
+Models müssen von _\hubert\extension\db\model_ erben. Des Weiteren muss in einer statischen Variable _$table_ die Datenbanktabelle zum Model und in einer statischen Funktion _fields()_ die Felder dieser Tabelle definiert werden.    
+
+Die Funktion _fields()_ muss einen Array zurückgeben, bei dem die namen der Elemente den Namen der Datenbank-Felder entsprechen und als Wert einen Array mit der Configuration des Feldes.   
+Möglich optionen sind:
+- _'type' => 'integer'_: Dieser Wert kann zum Erstellen der Tabelle benutzt werden, ist aber aktuell nur informativ.
+- _primary => true_: Alle Felder, welche den Primärschlüssel der Tabelle bilden müssen dieses Attrebut haben.
+- _"default" => ""_: Alle Felder, welche in der Datenbank nicht NULL sein dürfen müssen in der das "default"-Attrebut haben, wobei dieses auch ein Leerstring sein kann.
 
 ## Arbeiten mit Models
 
@@ -81,6 +78,16 @@ $user = src\model\user::selectOne(["id" => 1]);
 $user->name = "hubert";
 $user->update(["name]);
 print_r($user->getRoleIds());
+
+$new_user = new src\model\user();
+$new_user->name = "hubert2";
+$new_user->password = "test";
+$new_user->insert();
+echo "new Users Id: ".$new_user->id;
+
+$all_users = src\model\user::selectAll();
+print_r(json_encode($all_users));
 ```
 
-Dadurch, dass Models von _\hubert\extension\db\model_ erben, stehen die statischen Funktionen _selectOne($where)_ und _selectAll($where)_ zur Verfügung. Im Beispiel wurde noch ein Update-Funktion definiert, um bestimmte Attribute in der Datenbank updaten zu können.
+Dadurch, dass Models von _\hubert\extension\db\model_ erben, stehen die statischen Funktionen _selectOne($where)_ und _selectAll($where, $limit = 0, $offset = 0)_ zur Verfügung. Im Beispiel wurde noch ein _getRoleIds()_-Funktion definiert, um bestimmte Werte aus einer anderen Tabelle ab zu rufen.
+Des weiteren stehen die Funtion _insert()_ zum einfügen und _update($rows = array())_ zum Update eines Models zur verfügung. bei der Update-Funktion kann optional auch ein Array mit Spalten-Namen übergeben werden, wenn man nicht alle Spalten des Models updaten möchte.

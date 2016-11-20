@@ -62,14 +62,6 @@ class user extends \hubert\extension\db\model {
         );
     }
 
-    public function update($rows = array()){
-        $update = array();
-        foreach ($rows as $row){
-            $update[$row] = $this->$row;
-        }
-        return static::tableGateway()->update($update, ["id" => $this->id]);
-    }
-
     public function getRoleIds(){
         $query = "SELECT role_id FROM user_role_mapping WHERE user_id = :user_id";
         $result = hubert()->dbAdapter->query($query, array("user_id" => $this->id));
@@ -83,17 +75,4 @@ class user extends \hubert\extension\db\model {
 }
 ```
 
-Alle Modelle haben als Standard die statischen Funktionen _selectOne($where)_, _count($where = array())_ und _selectAll($where = array(), $limit = 0, $offset = 0)_:
-```php
-print_r(json_encode(\model\user::selectOne(["id" => 1])));
-print_r(json_encode(\model\user::selectAll()));
-```
-
-Im nächsten Beispiel sieht man, wie man Werte bei eines Users in der Datenbank ändern kann oder sich einen Array mit seinen Rollen-Ids holen kann:
-```php
-$user = \model\user::selectOne(["id" => 1]);
-$user->name = "hubert";
-$user->update(["name]);
-print_r($user->getRoleIds());
-```
-
+Informationen zur Verwendung von Models findest du [hier](/de/dokumentation/mvc-tutorial/model) 
