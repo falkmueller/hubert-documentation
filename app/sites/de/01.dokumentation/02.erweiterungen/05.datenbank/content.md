@@ -56,9 +56,9 @@ class user extends \hubert\extension\db\model {
      
     public static function fields(){
         return array(
-            "id" => array('type' => 'integer', 'primary' => true, 'autoincrement' => true),
-            "name" => array('type' => 'string', "default" => ""),
-            "password" => array('type' => 'string', "default" => "")
+            "id" => array('type' => 'int(11)', 'primary' => true, 'autoincrement' => true),
+            "name" => array('type' => 'varchar(30)', "default" => ""),
+            "password" => array('type' => 'varchar(50)', "default" => "")
         );
     }
 

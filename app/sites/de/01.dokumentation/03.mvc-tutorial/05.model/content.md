@@ -44,9 +44,10 @@ class user extends \hubert\extension\db\model {
      
     public static function fields(){
         return array(
-            "id" => array('type' => 'integer', 'primary' => true, 'autoincrement' => true),
-            "login_name" => array('type' => 'string', "default" => ""),
-            "password" => array('type' => 'string'),
+            "id" => array('type' => 'int(11)', 'primary' => true, 'autoincrement' => true),
+            "login_name" => array('type' => 'varchar(30)', "default" => ""),
+            "password" => array('type' => 'varchar(50)'),
+            "comment" => array('type' => 'text', 'null' => true),
         );
     }
     
@@ -67,9 +68,20 @@ Models müssen von _\hubert\extension\db\model_ erben. Des Weiteren muss in eine
 
 Die Funktion _fields()_ muss einen Array zurückgeben, bei dem die namen der Elemente den Namen der Datenbank-Felder entsprechen und als Wert einen Array mit der Configuration des Feldes.   
 Möglich optionen sind:
-- _'type' => 'integer'_: Dieser Wert kann zum Erstellen der Tabelle benutzt werden, ist aber aktuell nur informativ.
+- _'type' => 'int(11)'_: (Pflichtfeld) Dieser Wert wird zum Erstellen der Tabelle benutzt und definiert den MySql Datentyp der Spalte in der Datenbank.
 - _primary => true_: Alle Felder, welche den Primärschlüssel der Tabelle bilden müssen dieses Attrebut haben.
-- _"default" => ""_: Alle Felder, welche in der Datenbank nicht NULL sein dürfen müssen in der das "default"-Attrebut haben, wobei dieses auch ein Leerstring sein kann.
+- _'autoincrement' => true_:  Wird beim erstellen der Datenbanktabelle genutzt und gibt bei Id feldern an, dass diese automatisch fortlaufend durchnummeriert werden.
+- _null => true_: Wird beim erstellen der Datenbanktabelle genutzt und gibt an, ob das Feld NULL als Wert an nimmt.
+- _"default" => ""_: Das "default"-Attrebut ist der Standardwert beim neu erstellen eines Modells dieses Types. Dies kann auch ein Leerstring sein.
+
+## Tabellen anlegen
+
+```php
+$factory = new \hubert\extension\db\factory();
+$factory->createTableByModel(\src\model\user::class);
+```
+Die Funktion _createTableByModel($modelClass)_ der  Klasse "factory" erstellt eine DatenbankTabelle anhand der Feld-Definition eines Modells.
+Sollte die Tabelle schon existieren, werden die Felder abgeglichen und Felder angelegt, welche im Modell definiert sind, aber nicht in der Tabelle existieren.
 
 ## Arbeiten mit Models
 
