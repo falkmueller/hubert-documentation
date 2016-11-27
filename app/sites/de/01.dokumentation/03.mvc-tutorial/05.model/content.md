@@ -101,5 +101,5 @@ $all_users = src\model\user::selectAll();
 print_r(json_encode($all_users));
 ```
 
-Dadurch, dass Models von _\hubert\extension\db\model_ erben, stehen die statischen Funktionen _selectOne($where)_ und _selectAll($where, $limit = 0, $offset = 0)_ zur Verfügung. Im Beispiel wurde noch ein _getRoleIds()_-Funktion definiert, um bestimmte Werte aus einer anderen Tabelle ab zu rufen.
+Dadurch, dass Models von _\hubert\extension\db\model_ erben, stehen die statischen Funktionen _selectOne($where)_ und _selectAll($where, $limit = 0, $offset = 0, $sort = null)_ zur Verfügung. Im Beispiel wurde noch ein _getRoleIds()_-Funktion definiert, um bestimmte Werte aus einer anderen Tabelle ab zu rufen.
 Des weiteren stehen die Funtion _insert()_ zum einfügen und _update($rows = array())_ zum Update eines Models zur verfügung. bei der Update-Funktion kann optional auch ein Array mit Spalten-Namen übergeben werden, wenn man nicht alle Spalten des Models updaten möchte.
