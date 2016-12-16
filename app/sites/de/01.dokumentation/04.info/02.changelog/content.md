@@ -1,5 +1,8 @@
 # ChangeLog
 
+### 1.1.3
+- 2016-11-25 Fehler bei configuration-Caching behoben
+
 ### 1.1.2
 - 2016-11-18 preDispatch Event zu Bootstrap Interface hinzugefügt
 
