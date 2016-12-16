@@ -1,5 +1,8 @@
 # ChangeLog
 
+### 1.1.3
+- 2016-11-25 Bugfix in configuration-cache
+
 ### 1.1.2
 - 2016-11-18 added preDispatch event to the bootstrap interface
 
